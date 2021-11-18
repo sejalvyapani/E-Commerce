@@ -79,5 +79,20 @@ dmx.config({
       ],
       "outputType": "array"
     }
+  },
+  "main": {
+    "repeat1": {
+      "meta": [
+        {
+          "name": "id",
+          "type": "text"
+        },
+        {
+          "name": "title",
+          "type": "text"
+        }
+      ],
+      "outputType": "array"
+    }
   }
 });

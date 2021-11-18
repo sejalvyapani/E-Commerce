@@ -406,5 +406,31 @@
       "image": "assets/images/sm-pic4.svg",
       "title": "Kids"
     }
+  ],
+  "list": [
+    {
+      "id": "01",
+      "title": "SALE"
+    },
+    {
+      "id": "02",
+      "title": "NEW IN"
+    },
+    {
+      "id": "03",
+      "title": "CLOTHING"
+    },
+    {
+      "id": "04",
+      "title": "SHOES"
+    },
+    {
+      "id": "05",
+      "title": "ACCESSORIES"
+    },
+    {
+      "id": "06",
+      "title": "BRANDS"
+    }
   ]
 }

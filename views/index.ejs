@@ -1,10 +1,10 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="index" appConnect="local" components="{dmxSwiper:{}}" bootstrap_icons="local" -->
 <dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
 <meta name="ac:route" content="/">
-<div class=" container-fluid head-pic px-0 mt-2">
-  <img src="assets/images/head-pic.svg" class="w-100 d-none d-md-block">
+<div class=" container-fluid  position-relative px-0 mt-2">
+  <img src="assets/images/head-pic.svg" class="w-100 d-none d-lg-inline">
   <img src="assets/images/sm-head.svg" class="w-100 d-lg-none ">
-  <div class="bottom-left d-none d-md-block">
+  <div class="bottom-left position-absolute d-none d-lg-block">
     <h1 class="text-white w-25 font-size-head1"> NEW COLLECTION </h1>
     <p class="text-white font-size-head2">SPRING/SUMMER2021</p>
   </div>
@@ -49,7 +49,7 @@
 </div>
 <div class=" container px-0 mt-5">
   <div class="d-flex justify-content-between">
-    <h4 class=" d-flex justify-content-start d-none d-md-block ms-4">
+    <h4 class=" d-flex justify-content-start d-none mb-0 d-md-block ms-4">
       NEW IN
     </h4>
     <h5 class="d-lg-none ms-4 font-large14 "> NEWLY ADDED </h5>
@@ -86,7 +86,7 @@
   </div>
 </div>
 <div class="container px-0 mt-5 d-none d-md-block">
-  <h4 class="d-flex justify-content-start pt-5 ms-4">
+  <h4 class="d-flex justify-content-start mb-0 pt-5 ms-4">
     SPRING/SUMMER 2021
   </h4>
   <div class="justify-content-center mt-4 d-flex" id="repeat6" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.spring">
@@ -118,7 +118,7 @@
 </div>
 <div class="container px-0 mt-5 ">
   <div class="d-flex justify-content-between ">
-    <h4 class="d-flex justify-content-start d-none d-md-block ms-4">
+    <h4 class="d-flex justify-content-start d-none mb-0 d-md-block ms-4">
       RECOMMENDED FOR YOU
     </h4>
     <h5 class="d-lg-none ms-4 font-large14">
@@ -171,7 +171,7 @@
   </div>
 </div>
 <div class="container px-0 mt-5 d-none d-md-block">
-  <h4 class="d-flex justify-content-start ms-4">
+  <h4 class="d-flex justify-content-start mb-0 ms-4">
     NEW IN ... ACCESORIES
   </h4>
   <div class="mt-4" is="dmx-swiper" id="swiper1" dmx-bind:slides="jsonDS1.data.new_in_accesories" grab-cursor="true" navigation="true" slides-per-view="6">

@@ -2,17 +2,10 @@
 <html is="dmx-app">
 
 <head>
-  <script src="dmxAppConnect/dmxAppConnect.js"></script>
-  <base href="/">
-  <meta charset="UTF-8">
-  <title>Untitled Document</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootstrap-icons.css" />
   <link rel="stylesheet" href="bootstrap/5/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <script src="dmxAppConnect/dmxAppConnect.js"></script>
   <script src="dmxAppConnect/dmxRouting/dmxRouting.js" defer=""></script>
   <script src="dmxAppConnect/dmxBootstrap5Navigation/dmxBootstrap5Navigation.js" defer=""></script>
   <script src="dmxAppConnect/dmxBootstrap5Offcanvas/dmxBootstrap5Offcanvas.js" defer=""></script>
@@ -20,11 +13,21 @@
   <script src="dmxAppConnect/dmxSwiper/swiper.min.js" defer=""></script>
   <link rel="stylesheet" href="dmxAppConnect/dmxSwiper/themes/default.css" />
   <script src="dmxAppConnect/dmxSmoothScroll/dmxSmoothScroll.js" defer=""></script>
-  <link rel="stylesheet" href="css/bootstrap-icons.css" />
   <script src="dmxAppConnect/dmxDataTraversal/dmxDataTraversal.js" defer=""></script>
+  <base href="/">
+  <meta charset="UTF-8">
+  <title>Untitled Document</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body id="main">
+  <dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
+
   <div class="offcanvas offcanvas-start w-75" id="offcanvasMenu" is="dmx-bs5-offcanvas" tabindex="-1" scroll="true">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title"></h5>
@@ -44,7 +47,7 @@
       <p class="font-large14"><img src="assets/images/Newsletter.svg">NEWSLETTER</p>
     </div>
   </div>
-  <div class="d-flex container-fluid justify-content-center bg-dark  text-white">
+  <div class="d-flex container-fluid justify-content-center bg-dark font-medium12 text-white">
     <p class=" mb-0 py-2">
       20% Off! Code: SPRING@!-Terms apply*
     </p>
@@ -53,13 +56,13 @@
     <div class="col-lg-4 ">
       <img src="assets/images/Logo-lockup.svg" class="me-5">
     </div>
-    <div class="col-lg-4 ">
+    <div class="col-lg-4 d-flex justify-content-end">
       <span class="d-none me-5 font-medium12 d-md-inline">
         <img src="assets/images/support.svg">
         Support </span>
       <span class="font-medium12"><img src="assets/images/location.svg"><span class="d-none d-md-inline">Find a</span> Store</span>
     </div>
-    <div class="col-lg-4 d-flex justify-content-end  ">
+    <div class="col-lg-4 d-flex justify-content-end align-items-center ">
       <img src="assets/images/Heart.svg" class=" account-icon d-none d-md-inline">
       <span> <img src="assets/images/Account.svg" class="me-2 ms-2 account-icon"><span class="d-lg-none font-medium12">Account</span></span>
       <span> <img src="assets/images/Cart.svg" class="me-2 account-icon"><span class="d-lg-none font-medium12">Cart</span></span>
@@ -80,25 +83,11 @@
             <span class="navbar-toggler-icon"></span> <span class="ms-2">MENU</span>
           </button>
           <div class="d-none d-md-inline">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-medium12">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-medium12" is="dmx-repeat" id="repeat1" dmx-bind:repeat="jsonDS1.data.list">
               <li class="nav-item">
-                <a class="nav-link text-dark" href="#">SALE</a>
+                <a class="nav-link  text-dark" href="#" dmx-class:ps-0="$index==0">{{title}}</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#">NEW IN</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#">CLOTHING</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#">SHOES</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#">ACCESSORIES</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="#">BRANDS</a>
-              </li>
+
             </ul>
           </div>
         </div>

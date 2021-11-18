@@ -15,14 +15,9 @@ body{
   width:24px;
   height:24px;
 }
-.head-pic{
-   position: relative;
-   text-align: center;
-   
 
-}
 .bottom-left{
-  position: absolute;
+  
    top:180px;
   left:280px;
 }
