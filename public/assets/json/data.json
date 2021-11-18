@@ -1,0 +1,410 @@
+{
+  "new_in": [
+    {
+      "id": "01",
+      "image": "assets/images/shoes1.svg",
+      "discount": "-42% OFF",
+      "type": "Puma",
+      "name": "Name",
+      "final_price": "74,95€",
+      "real_price": "121,00€",
+      "rating": 4,
+      "rating_count": 54
+    },
+    {
+      "id": "02",
+      "image": "assets/images/shoes2.svg",
+      "discount": "-54% OFF",
+      "type": "Nike",
+      "name": "Name and Characteristics",
+      "final_price": "52,95€",
+      "real_price": "131,00€",
+      "rating": 5,
+      "rating_count": 64
+    },
+    {
+      "id": "03",
+      "image": "assets/images/shoes3.svg",
+      "discount": "-32% OFF",
+      "type": "Adidas",
+      "name": "Name and Characteristics",
+      "final_price": "85,95€",
+      "real_price": "129,00€",
+      "rating": 4,
+      "rating_count": 45
+    },
+    {
+      "id": "04",
+      "image": "assets/images/shoes4.svg",
+      "discount": "-42% OFF",
+      "type": "Reebok",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "185,00€",
+      "rating": 4,
+      "rating_count": 65
+    },
+    {
+      "id": "05",
+      "image": "assets/images/shoes5.svg",
+      "discount": "-52% OFF",
+      "type": "Vans",
+      "name": "Name and Characteristics",
+      "final_price": "54,95€",
+      "real_price": "121,00€",
+      "rating": 3,
+      "rating_count": 57
+    },
+    {
+      "id": "06",
+      "image": "assets/images/shoes6.svg",
+      "discount": "-32% OFF",
+      "type": "Puma",
+      "name": "Name and Characteristics",
+      "final_price": "64,95€",
+      "real_price": "121,00€",
+      "rating": 4,
+      "rating_count": 54
+    },
+    {
+      "id": "07",
+      "image": "assets/images/shoes11.svg",
+      "discount": "-10% OFF",
+      "type": "Skechers",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "100,00€",
+      "rating": 4,
+      "rating_count": 35
+    },
+    {
+      "id": "08",
+      "image": "assets/images/shoes8.svg",
+      "discount": "-41% OFF",
+      "type": "Jordan",
+      "name": "Name and Characteristics",
+      "final_price": "78,95€",
+      "real_price": "121,00€",
+      "rating": 5,
+      "rating_count": 67
+    },
+    {
+      "id": "09",
+      "image": "assets/images/shoes9.svg",
+      "discount": "-39% OFF",
+      "type": "Vans",
+      "name": "Name and Characteristics",
+      "final_price": "64,95€",
+      "real_price": "110,00€",
+      "rating": 3,
+      "rating_count": 65
+    },
+    {
+      "id": "10",
+      "image": "assets/images/shoes12.svg",
+      "discount": "-10% OFF",
+      "type": "Converse",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "121,00€",
+      "rating": 3,
+      "rating_count": 43
+    }
+  ],
+  "spring": [
+    {
+      "id": "01",
+      "image": "assets/images/shoes7.svg",
+      "discount": "-23% OFF",
+      "type": "Nike",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "143,00€",
+      "rating": 4,
+      "rating_count": 36,
+      "block_type": "landscape"
+    },
+    {
+      "id": "02",
+      "image": "assets/images/shoes8.svg",
+      "discount": "-32% OFF",
+      "type": "Adidas",
+      "name": "Name and Characteristics",
+      "final_price": "110,95€",
+      "real_price": "156,00€",
+      "rating": 5,
+      "rating_count": 66,
+      "block_type": "portrait"
+    },
+    {
+      "id": "03",
+      "image": "assets/images/shoes9.svg",
+      "discount": "-42% OFF",
+      "type": "Vans",
+      "name": "Name and Characteristics",
+      "final_price": "64,95€",
+      "real_price": "99,00€",
+      "rating": 3,
+      "rating_count": 56,
+      "block_type": "portrait"
+    },
+    {
+      "id": "04",
+      "image": "assets/images/shoes10.svg",
+      "discount": "-36% OFF",
+      "type": "Nike",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "134,00€",
+      "rating": 3,
+      "rating_count": 34,
+      "block_type": "landscape"
+    }
+  ],
+  "recommended_for_you": [
+    {
+      "id": "01",
+      "image": "assets/images/shoes11.svg",
+      "discount": "-52% OFF",
+      "type": "Adidas",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "161,00€",
+      "rating": 4,
+      "rating_count": 37
+    },
+    {
+      "id": "02",
+      "image": "assets/images/shoes12.svg",
+      "discount": "-42% OFF",
+      "type": "Nike",
+      "name": "Name and Characteristics",
+      "final_price": "84,95€",
+      "real_price": "132,00€",
+      "rating": 4,
+      "rating_count": 33
+    },
+    {
+      "id": "03",
+      "image": "assets/images/shoes13.svg",
+      "discount": "-72% OFF",
+      "type": "Skechers",
+      "name": "Name and Characteristics",
+      "final_price": "89,95€",
+      "real_price": "190,00€",
+      "rating": 5,
+      "rating_count": 34
+    },
+    {
+      "id": "04",
+      "image": "assets/images/shoes14.svg",
+      "discount": "-10% OFF",
+      "type": "Jordan",
+      "name": "Name and Characteristics",
+      "final_price": "74,95€",
+      "real_price": "84,00€",
+      "rating": 3,
+      "rating_count": 46
+    },
+    {
+      "id": "05",
+      "image": "assets/images/shoes15.svg",
+      "discount": "-42% OFF",
+      "type": "Nike",
+      "name": "Name and Characteristics",
+      "final_price": "74,95€",
+      "real_price": "121,00€",
+      "rating": 3,
+      "rating_count": 42
+    },
+    {
+      "id": "06",
+      "image": "assets/images/shoes16.svg",
+      "discount": "-80% OFF",
+      "type": "Adidas",
+      "name": "Name and Characteristics",
+      "final_price": "74,95€",
+      "real_price": "171,00€",
+      "rating": 5,
+      "rating_count": 54
+    },
+    {
+      "id": "07",
+      "image": "assets/images/shoes17.svg",
+      "discount": "-42% OFF",
+      "type": "Reebok",
+      "name": "Name and Characteristics",
+      "final_price": "89,95€",
+      "real_price": "156,00€",
+      "rating": 2,
+      "rating_count": 22
+    },
+    {
+      "id": "08",
+      "image": "assets/images/shoes18.svg",
+      "discount": "-54% OFF",
+      "type": "Converse",
+      "name": "Name and Characteristics",
+      "final_price": "76,95€",
+      "real_price": "154,00€",
+      "rating": 3,
+      "rating_count": 54
+    },
+    {
+      "id": "09",
+      "image": "assets/images/shoes19.svg",
+      "discount": "-32% OFF",
+      "type": "Nike",
+      "name": "Name and Characteristics",
+      "final_price": "56,95€",
+      "real_price": "98,00€",
+      "rating": 4,
+      "rating_count": 32
+    },
+    {
+      "id": "10",
+      "image": "assets/images/shoes20.svg",
+      "discount": "-60% OFF",
+      "type": "Puma",
+      "name": "Name and Characteristics",
+      "final_price": "24,95€",
+      "real_price": "110,00€",
+      "rating": 4,
+      "rating_count": 45
+    }
+  ],
+  "new_in_accesories": [
+    {
+      "id": "01",
+      "image": "assets/images/shoes17.svg",
+      "discount": "-42% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "74,95€",
+      "real_price": "121,00€",
+      "rating": 4,
+      "rating_count": 66
+    },
+    {
+      "id": "02",
+      "image": "assets/images/shoes18.svg",
+      "discount": "-45% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "64,95€",
+      "real_price": "125,00€",
+      "rating": 3,
+      "rating_count": 54
+    },
+    {
+      "id": "03",
+      "image": "assets/images/shoes19.svg",
+      "discount": "-43% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "84,95€",
+      "real_price": "123,00€",
+      "rating": 4,
+      "rating_count": 76
+    },
+    {
+      "id": "04",
+      "image": "assets/images/shoes20.svg",
+      "discount": "-46% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "156,00€",
+      "rating": 3,
+      "rating_count": 65
+    },
+    {
+      "id": "05",
+      "image": "assets/images/shoes21.svg",
+      "discount": "-50% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "84,95€",
+      "real_price": "160,00€",
+      "rating": 2,
+      "rating_count": 62
+    },
+    {
+      "id": "06",
+      "image": "assets/images/shoes22.svg",
+      "discount": "-32% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "121,00€",
+      "rating": 3,
+      "rating_count": 63
+    },
+    {
+      "id": "07",
+      "image": "assets/images/shoes11.svg",
+      "discount": "-21% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "94,95€",
+      "real_price": "121,00€",
+      "rating": 4,
+      "rating_count": 67
+    },
+    {
+      "id": "08",
+      "image": "assets/images/shoes12.svg",
+      "discount": "-30% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "83,95€",
+      "real_price": "110,00€",
+      "rating": 3,
+      "rating_count": 78
+    },
+    {
+      "id": "09",
+      "image": "assets/images/shoes13.svg",
+      "discount": "-33% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "66,95€",
+      "real_price": "100,00€",
+      "rating": 3,
+      "rating_count": 54
+    },
+    {
+      "id": "10",
+      "image": "assets/images/shoes14.svg",
+      "discount": "-30% OFF",
+      "type": "BRAND/TYPE",
+      "name": "Name and Characteristics",
+      "final_price": "99,95€",
+      "real_price": "131,00€",
+      "rating": 4,
+      "rating_count": 65
+    }
+  ],
+  "category": [
+    {
+      "id": "01",
+      "image": "assets/images/sm-pic1.svg",
+      "title": "New Relases"
+    },
+    {
+      "id": "02",
+      "image": "assets/images/sm-pic2.svg",
+      "title": "Men"
+    },
+    {
+      "id": "03",
+      "image": "assets/images/sm-pic3.svg",
+      "title": "Women"
+    },
+    {
+      "id": "04",
+      "image": "assets/images/sm-pic4.svg",
+      "title": "Kids"
+    }
+  ]
+}

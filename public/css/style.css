@@ -225,8 +225,36 @@ background-image:url(/assets/images/sm-shoes.jpg);
     width:132px;
    height:210px;
     background-repeat: no-repeat;
+
  }
 .new-text{
  position: absolute;
  top:70px; 
 }
+.font-large14{
+font-size: 14px;
+}
+.font-medium12{
+  font-size: 12px;
+}
+.font-small9{
+  font-size:9px;
+}
+.form-border{
+  border:1px solid  #91929D;
+}
+  .font-size-head1{
+    font-size:67px;
+  }
+  .font-size-head2{
+    font-size:30px; width:350px;
+  }
+  .font-size-p-heading{
+    font-size:32px; font-weight:600;
+  }
+  .font-size-p-text{
+    font-weight:bold; font-size:20px;
+  }
+  .image-margin{
+    margin-left:-300px; margin-top:50px;
+  }
