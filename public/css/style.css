@@ -91,6 +91,26 @@ font-size: 14px;
   .image-margin{
     margin-left:-300px; margin-top:50px;
   }
+  .women-shoes{
+    background-image: url(/assets/images/women-headpic.jpg);
+    
+    
+    height:220px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .women-shoes-uppertext{
+    top:70px;
+    left:60px;
+    right:60px;
+    font-weight:bold;
+  }
+  .select{
+    border:1px solid #91929D;
+    border-radius: 2px;
+    padding:5px 8px;
+    margin: 0px 10px;
+  }
   @media(max-width:571px){
 
  .swiper-slide{

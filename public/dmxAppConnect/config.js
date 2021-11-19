@@ -84,12 +84,72 @@ dmx.config({
     "repeat1": {
       "meta": [
         {
-          "name": "id",
-          "type": "text"
+          "name": "item_id",
+          "type": "number"
+        },
+        {
+          "name": "category_id",
+          "type": "number"
         },
         {
           "name": "title",
           "type": "text"
+        }
+      ],
+      "outputType": "array"
+    },
+    "repeatCategory": {
+      "meta": [
+        {
+          "name": "category_id",
+          "type": "number"
+        },
+        {
+          "name": "title",
+          "type": "text"
+        }
+      ],
+      "outputType": "array"
+    }
+  },
+  "productlisting": {
+    "repeat1": {
+      "meta": [
+        {
+          "name": "id",
+          "type": "text"
+        },
+        {
+          "name": "image",
+          "type": "text"
+        },
+        {
+          "name": "discount",
+          "type": "text"
+        },
+        {
+          "name": "type",
+          "type": "text"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "final_price",
+          "type": "text"
+        },
+        {
+          "name": "real_price",
+          "type": "text"
+        },
+        {
+          "name": "rating",
+          "type": "number"
+        },
+        {
+          "name": "rating_count",
+          "type": "number"
         }
       ],
       "outputType": "array"

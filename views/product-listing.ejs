@@ -1,2 +1,106 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="productlisting" appConnect="local" -->
+<dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
 <meta name="ac:route" content="/product-listing">
+<div class="container px-0 label">
+  Women Shoes
+  <h4>
+    Sneakers <span class="label">(542)</span>
+  </h4>
+</div>
+<div class="container women-shoes position-relative w-100 ">
+  <div class="text-white d-flex position-absolute justify-content-between women-shoes-uppertext">
+    <h3>
+      SNEAKERS
+    </h3>
+
+    <p class="font-large14 w-50">
+      Sneakers. Volutpat sit purus egestas at aliquet id. Massa ligula viverra sed id proin non. Scelerisque duis purus rutrum aliquam enim donec elementum rhoncus. Orci, ornare habitant vitae, consectetur pellentesque nisl, feugiat. Faucibus sed arcu placerat purus auctor.
+    </p>
+
+  </div>
+</div>
+<div class="container px-0 d-flex mt-5">
+  <div class="col-lg-3">
+    <h5 class="label font-large14"> Categories</h5>
+    <div id="repeatshoescategories" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.shoes_categories">
+      <div class="d-flex align-items-center">
+        <img dmx-bind:src="image" class="mt-4">
+        <div class="font-large14 mt-4 ms-3 text-center">{{title}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+
+        <select class="custom-select select ">
+          <option selected class="font-medium12">Size</option>
+          <option value="1">L</option>
+          <option value="2">XL</option>
+          <option value="3">XXL</option>
+        </select>
+        <select class="custom-select select ">
+          <option selected class="font-medium12">Brand</option>
+          <option value="1">Nike</option>
+          <option value="2">Adidas</option>
+          <option value="3">Puma</option>
+        </select>
+        <select class="custom-select select ">
+          <option selected class="font-medium12">Colour</option>
+          <option value="1">Black</option>
+          <option value="2">Brown</option>
+          <option value="3">White</option>
+        </select>
+        <a href="" class="text-dark  text-decoration-none ms-2 me-2">
+          More Filters <i class="fas fa-filter"></i></a>
+
+
+      </div>
+      <div class="d-flex align-items-center">
+        <a href="" class="text-dark text-decoration-none">Display <img src="assets/images/Category.svg" class="me-2"><img src="assets/images/Square.svg" class="me-3"></a>
+        <select class="custom-select select m-0 ">
+          <option selected class="font-medium12">Sort by: Most Relevant</option>
+          <option value="1">Black</option>
+          <option value="2">Brown</option>
+          <option value="3">White</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container">
+
+  <div class="   mt-4 d-flex" id="repeat1" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.new_in">
+
+    <dmx-value id="varIsFavorite" dmx-bind:value="0"></dmx-value>
+    <div class="section-part">
+      <div class="image-part">
+        <img dmx-bind:src="image" class="w-100 h-100">
+        <div class="btn btn-icon image-save mt-1 px-1" dmx-on:click="varIsFavorite.value == 1 ? varIsFavorite.setValue(0) : varIsFavorite.setValue(1)">
+          <span dmx-hide="varIsFavorite.value"> <i class="bi-suit-heart"></i></span>
+          <span dmx-show="varIsFavorite.value"> <i class="bi-heart-fill text-danger"></i></span>
+
+        </div>
+        <div class="image-tag d-none d-lg-block">{{discount}}
+        </div>
+      </div>
+      <div class="content-part ">
+        <div class="label d-none d-lg-block">{{type}}</div>
+        <div class="title">{{name}}</div>
+        <div class="d-flex">
+          <div class="final-price"> {{final_price}} </div>
+          <div class="real-price">{{real_price}}</div>
+        </div>
+        <div class="rating d-flex">
+          <div id="repeat2" is="dmx-repeat" dmx-bind:repeat="5">
+            <span dmx-show="rating > $index"><i class="bi-star-fill"></i></span>
+            <span dmx-hide="rating > $index"><i class="bi-star"></i></span>
+          </div>
+          <div class="ms-2">{{rating_count}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

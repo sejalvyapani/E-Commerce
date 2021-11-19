@@ -23,9 +23,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rubik:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/style.css" />
+  <script src="dmxAppConnect/dmxFormatter/dmxFormatter.js" defer=""></script>
 </head>
 
 <body id="main">
+  <dmx-value id="varCategory" dmx-bind:value="jsonDS1.data.menu_categories[0].category_id"></dmx-value>
   <dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
 
   <div class="offcanvas offcanvas-start w-75" id="offcanvasMenu" is="dmx-bs5-offcanvas" tabindex="-1" scroll="true">
@@ -70,10 +72,8 @@
   </div>
   <div class="container mt-5 p-0">
     <div class="border-bottom mb-3 ">
-      <div class="d-none d-lg-inline">
-        <span class="fw-bold me-2 font-large14">WOMEN</span>
-        <span class="me-2 font-large14">MEN</span>
-        <span class="font-large14">KIDS</span>
+      <div class="d-none d-lg-inline" is="dmx-repeat" id="repeatCategory" dmx-bind:repeat="jsonDS1.data.menu_categories">
+        <span class="me-2 font-large14" style="cursor: pointer;" dmx-class:fw-bold="category_id == varCategory.value" dmx-on:click="varCategory.setValue(category_id)">{{title}}</span>
       </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -83,11 +83,10 @@
             <span class="navbar-toggler-icon"></span> <span class="ms-2">MENU</span>
           </button>
           <div class="d-none d-lg-inline">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-medium12" is="dmx-repeat" id="repeat1" dmx-bind:repeat="jsonDS1.data.list">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-medium12" is="dmx-repeat" id="repeat1" dmx-bind:repeat="jsonDS1.data.menu_items.where(`category_id`, varCategory.value, '==')">
               <li class="nav-item">
                 <a class="nav-link  text-dark" href="#" dmx-class:ps-0="$index==0">{{title}}</a>
               </li>
-
             </ul>
           </div>
         </div>

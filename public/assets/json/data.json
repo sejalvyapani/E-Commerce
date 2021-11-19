@@ -407,30 +407,107 @@
       "title": "Kids"
     }
   ],
-  "list": [
+  "menu_categories": [
     {
-      "id": "01",
+      "category_id": 1,
+      "title": "Women"
+    },
+    {
+      "category_id": 2,
+      "title": "Men"
+    },
+    {
+      "category_id": 3,
+      "title": "Kids"
+    }
+  ],
+  "menu_items": [
+    {
+      "item_id": 1,
+      "category_id": 1,
       "title": "SALE"
     },
     {
-      "id": "02",
+      "item_id": 2,
+      "category_id": 1,
       "title": "NEW IN"
     },
     {
-      "id": "03",
+      "id": 3,
+      "category_id": 1,
       "title": "CLOTHING"
     },
     {
-      "id": "04",
+      "id": 4,
+      "category_id": 1,
       "title": "SHOES"
     },
     {
-      "id": "05",
+      "id": 5,
+      "category_id": 1,
       "title": "ACCESSORIES"
     },
     {
-      "id": "06",
+      "id": 6,
+      "category_id": 1,
       "title": "BRANDS"
+    },
+    {
+      "id": 7,
+      "category_id": 2,
+      "title": "SHOES"
+    },
+    {
+      "id": 8,
+      "category_id": 2,
+      "title": "CLOTHING"
+    },
+    {
+      "id": 9,
+      "category_id": 2,
+      "title": "BRANDS"
+    },
+    {
+      "id": 10,
+      "category_id": 3,
+      "title": "COLTHES"
+    },
+    {
+      "id": 11,
+      "category_id": 3,
+      "title": "NEW IN"
+    },
+    {
+      "id": 11,
+      "category_id": 3,
+      "title": "SALE"
+    }
+  ],
+  "shoes_categories": [
+    {
+      "shoes_id": 1,
+      "image": "assets/images/light-shoes.svg",
+      "title": "Low Sneakers Women (43)"
+    },
+    {
+      "shoes_id": 2,
+      "image": "assets/images/light-shoes.svg",
+      "title": "Low Sneakers Mens (43)"
+    },
+    {
+      "shoes_id": 3,
+      "image": "assets/images/light-shoes.svg",
+      "title": "Casual footwear (43)"
+    },
+    {
+      "shoes_id": 4,
+      "image": "assets/images/light-shoes.svg",
+      "title": "Golf shoes (43)"
+    },
+    {
+      "shoes_id": 5,
+      "image": "assets/images/light-shoes.svg",
+      "title": "Sports shoes (43)"
     }
   ]
 }
