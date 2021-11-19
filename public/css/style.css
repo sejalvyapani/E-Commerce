@@ -4,6 +4,11 @@ body{
 .head-text{
   margin-left: 110px;
 }
+.heading{
+  font-size:32px;
+  letter-spacing: 2px;
+  font-weight:600;
+}
 .h-divider{
  margin-top:5px;
  margin-bottom:5px;

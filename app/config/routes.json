@@ -5,6 +5,11 @@
       "page": "index",
       "routeType": "page",
       "layout": "main"
+    },
+    {
+      "path": "/product-listing",
+      "page": "product-listing",
+      "layout": "main"
     }
   ]
 }
