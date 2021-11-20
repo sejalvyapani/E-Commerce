@@ -433,52 +433,52 @@
       "title": "NEW IN"
     },
     {
-      "id": 3,
+      "item_id": 3,
       "category_id": 1,
       "title": "CLOTHING"
     },
     {
-      "id": 4,
+      "item_id": 4,
       "category_id": 1,
       "title": "SHOES"
     },
     {
-      "id": 5,
+      "item_id": 5,
       "category_id": 1,
       "title": "ACCESSORIES"
     },
     {
-      "id": 6,
+      "item_id": 6,
       "category_id": 1,
       "title": "BRANDS"
     },
     {
-      "id": 7,
+      "item_id": 7,
       "category_id": 2,
       "title": "SHOES"
     },
     {
-      "id": 8,
+      "item_id": 8,
       "category_id": 2,
       "title": "CLOTHING"
     },
     {
-      "id": 9,
+      "item_id": 9,
       "category_id": 2,
       "title": "BRANDS"
     },
     {
-      "id": 10,
+      "item_id": 10,
       "category_id": 3,
       "title": "COLTHES"
     },
     {
-      "id": 11,
+      "item_id": 11,
       "category_id": 3,
       "title": "NEW IN"
     },
     {
-      "id": 11,
+      "item_id": 12,
       "category_id": 3,
       "title": "SALE"
     }
@@ -508,6 +508,212 @@
       "shoes_id": 5,
       "image": "assets/images/light-shoes.svg",
       "title": "Sports shoes (43)"
+    }
+  ],
+  "women-shoes": [
+    {
+      "id": 1,
+      "image": "assets/images/shoes1.svg",
+      "discount": "-42% OFF",
+      "type": "Puma",
+      "name": "Name",
+      "color": "#FFD9F0,#DFF2F8,#3F52E8,#7884DE,#4F5162",
+      "final_price": "74,95€",
+      "real_price": "121,00€",
+      "rating": 4,
+      "rating_count": 54
+    },
+    {
+      "id": 2,
+      "image": "assets/images/shoes2.svg",
+      "discount": "-54% OFF",
+      "type": "Nike",
+      "name": "Name and Characteristics",
+      "color": "#800000,#a32638,#8b008b,#000000,#704241",
+      "final_price": "52,95€",
+      "real_price": "131,00€",
+      "rating": 5,
+      "rating_count": 64
+    },
+    {
+      "id": 3,
+      "image": "assets/images/shoes3.svg",
+      "discount": "-32% OFF",
+      "type": "Adidas",
+      "name": "Name and Characteristics",
+      "color": "#555555,#DFF2F8,#004040,#000080,#23297a",
+      "final_price": "85,95€",
+      "real_price": "129,00€",
+      "rating": 4,
+      "rating_count": 45
+    },
+    {
+      "id": 4,
+      "image": "assets/images/shoes4.svg",
+      "discount": "-42% OFF",
+      "type": "Reebok",
+      "name": "Name and Characteristics",
+      "color": "#bcb88a,#008b8b,#051118,#7884DE,#fbceb1",
+      "final_price": "94,95€",
+      "real_price": "185,00€",
+      "rating": 4,
+      "rating_count": 65
+    },
+    {
+      "id": 5,
+      "image": "assets/images/shoes5.svg",
+      "discount": "-52% OFF",
+      "type": "Vans",
+      "name": "Name and Characteristics",
+      "color": "#f08080,#DFF2F8,#ff0000,#f80080,#fa8072",
+      "final_price": "54,95€",
+      "real_price": "121,00€",
+      "rating": 3,
+      "rating_count": 57
+    },
+    {
+      "id": 6,
+      "image": "assets/images/shoes6.svg",
+      "discount": "-32% OFF",
+      "type": "Puma",
+      "name": "Name and Characteristics",
+      "color": "#e4717a,#cc6666,#3F52E8,#7884DE,#4F5162",
+      "final_price": "64,95€",
+      "real_price": "121,00€",
+      "rating": 4,
+      "rating_count": 54
+    },
+    {
+      "id": 7,
+      "image": "assets/images/shoes11.svg",
+      "discount": "-10% OFF",
+      "type": "Skechers",
+      "name": "Name and Characteristics",
+      "color": "#FFD9F0,#bc8f8f,#f0ead6,#7884DE,#4F5162",
+      "final_price": "94,95€",
+      "real_price": "100,00€",
+      "rating": 4,
+      "rating_count": 35
+    },
+    {
+      "id": 8,
+      "image": "assets/images/shoes8.svg",
+      "discount": "-41% OFF",
+      "type": "Jordan",
+      "name": "Name and Characteristics",
+      "color": "#556b2f,#00008b,#add8e6,#7884DE,#b0c4de",
+      "final_price": "78,95€",
+      "real_price": "121,00€",
+      "rating": 5,
+      "rating_count": 67
+    },
+    {
+      "id": 9,
+      "image": "assets/images/shoes9.svg",
+      "discount": "-39% OFF",
+      "type": "Vans",
+      "name": "Name and Characteristics",
+      "color": "#4b0082,#800080,#3F52E8,#9932cc,#4F5162",
+      "final_price": "64,95€",
+      "real_price": "110,00€",
+      "rating": 3,
+      "rating_count": 65
+    }
+  ],
+  "offcanvas_filter": [
+    {
+      "filter_id": 1,
+      "filter_item": "Sort",
+      "filter_type": "sort"
+    },
+    {
+      "filter_id": 2,
+      "filter_item": "Category",
+      "filter_type": "category"
+    },
+    {
+      "filter_id": 3,
+      "filter_item": "Brand",
+      "filter_type": "brand"
+    },
+    {
+      "filter_id": 4,
+      "filter_item": "Colours",
+      "filter_type": "color"
+    },
+    {
+      "filter_id": 5,
+      "filter_item": "Size",
+      "filter_type": "size"
+    },
+    {
+      "filter_id": 6,
+      "filter_item": "Materials",
+      "filter_type": "materials"
+    },
+    {
+      "filter_id": 7,
+      "filter_item": "Price",
+      "filter_type": "price"
+    }
+  ],
+  "brand": [
+    {
+      "brand_item_id": 1,
+      "filter_type": "brand",
+      "brand_name": "Aaiko"
+    },
+    {
+      "brand_item_id": 2,
+      "filter_type": "brand",
+      "brand_name": "Ambercrombie & Fitch"
+    },
+    {
+      "brand_item_id": 3,
+      "filter_type": "brand",
+      "brand_name": "Adidas"
+    },
+    {
+      "brand_item_id": 4,
+      "filter_type": "brand",
+      "brand_name": "Abrand jeans"
+    },
+    {
+      "brand_item_id": 5,
+      "filter_type": "brand",
+      "brand_name": "Abro"
+    }
+  ],
+  "size": [
+    {
+      "size_item-id": 1,
+      "filter_type": "size",
+      "size_numb": 32
+    },
+    {
+      "size_item-id": 1,
+      "filter_type": "size",
+      "size_numb": 34
+    },
+    {
+      "size_item-id": 1,
+      "filter_type": "size",
+      "size_numb": 37
+    },
+    {
+      "size_item-id": 1,
+      "filter_type": "size",
+      "size_numb": 40
+    },
+    {
+      "size_item-id": 1,
+      "filter_type": "size",
+      "size_numb": 42
+    },
+    {
+      "size_item-id": 1,
+      "filter_type": "size",
+      "size_numb": 43
     }
   ]
 }

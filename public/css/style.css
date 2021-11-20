@@ -91,26 +91,8 @@ font-size: 14px;
   .image-margin{
     margin-left:-300px; margin-top:50px;
   }
-  .women-shoes{
-    background-image: url(/assets/images/women-headpic.jpg);
-    
-    
-    height:220px;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .women-shoes-uppertext{
-    top:70px;
-    left:60px;
-    right:60px;
-    font-weight:bold;
-  }
-  .select{
-    border:1px solid #91929D;
-    border-radius: 2px;
-    padding:5px 8px;
-    margin: 0px 10px;
-  }
+ 
+ 
   @media(max-width:571px){
 
  .swiper-slide{
@@ -216,6 +198,96 @@ background-image:url(/assets/images/sm-shoes.jpg);
  left:5px;
  font-size: 14px;
 }
+.women-shoes{
+    background-image: url(/assets/images/w-sm-head.jpg);
+    
+    
+    height:269px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .w-shoes-p{
+    top:0px;
+    left:16px;
+
+    text-align: justify;
+  }
+  .women-section-part
+{
+  width:163.5px;
+  height:223px;
+ margin: 0px 10px;
+  
+}
+.women-image-part{
+  position: relative;
+  height:123px;
+  width:163.5px;
+
+}
+.w-shoes-image{
+  -o-object-fit: cover;
+     object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+}
+ .women-image-save{
+ position: absolute;
+ top:2px;
+ right:5px;
+ padding: 2px;
+ background-color: white;
+ }
+ .women-image-tag{
+    background-color: #F82CAA;
+    border-radius: 2px;
+    top:92%;
+    margin-left: 5px;
+    color:white;
+    position: absolute;
+    height:17px;
+    width:59px;
+    padding:2px 8px;
+    font-size: 9px;
+    font-weight: normal;
+
+ }
+  .women-content-part{
+     height:96px;
+     
+  }
+    .women-title{
+    font-size:14px;
+    font-weight: bold;
+    margin-top:3px;
+    margin-bottom:3px;
+
+  }
+  .w-shoes-color{
+    width:15px;
+    height:15px;
+    border: 1px solid #91929D;
+  }
+   .w-shoes-final-price{ 
+    color: #F82CAA;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 14px;
+  }
+  .w-shoes-real-price{
+    font-size:14px;
+    -webkit-text-decoration-line: line-through;
+            text-decoration-line: line-through;
+    font-style: italic;
+    color: #91929D;
+    margin-left: 12px;
+
+  }
+    .w-shoes-rating{
+    font-size:10px;
+    font-weight: bold;
+    
+  }
 }
 @media(min-width:768px) and (max-width:991px){
    .swiper-slide{
@@ -397,6 +469,174 @@ background-image:url(/assets/images/sm-shoes.jpg);
     font-size:10px;
     font-weight: bold;
     
+
   }
+   .women-shoes{
+    background-image: url(/assets/images/women-headpic.jpg);
+    
+    
+    height:220px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .women-shoes-uppertext{
+    top:70px;
+    left:60px;
+    right:60px;
+    font-weight:bold;
+  }
+  .women-section-part
+{
+  width:302.67px;
+  height:391px;
+ 
+  
+}
+.women-image-part{
+  position: relative;
+  height:295px;
+  width:302.67px;
+
+}
+.w-shoes-image{
+  -o-object-fit: cover;
+     object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+}
+ .women-image-save{
+ position: absolute;
+ top:2px;
+ right:5px;
+ padding: 2px;
+ background-color: white;
+ }
+ .women-image-tag{
+    background-color: #F82CAA;
+    border-radius: 2px;
+    top:92%;
+    margin-left: 5px;
+    color:white;
+    position: absolute;
+    height:17px;
+    width:59px;
+    padding:2px 8px;
+    font-size: 9px;
+    font-weight: normal;
+
+ }
+  .women-content-part{
+     height:96px;
+     
+  }
+    .women-title{
+    font-size:14px;
+    font-weight: bold;
+    margin-top:3px;
+    margin-bottom:3px;
+
+  }
+  .w-shoes-color{
+    width:15px;
+    height:15px;
+    border: 1px solid #91929D;
+  }
+   .w-shoes-final-price{ 
+    color: #F82CAA;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 14px;
+  }
+  .w-shoes-real-price{
+    font-size:14px;
+    -webkit-text-decoration-line: line-through;
+            text-decoration-line: line-through;
+    font-style: italic;
+    color: #91929D;
+    margin-left: 12px;
+
+  }
+    .w-shoes-rating{
+    font-size:10px;
+    font-weight: bold;
+    
+  }
+   .women-section-part-p
+{
+  width:410.67px;
+  height:391px;
+ 
+  
+}
+.women-image-part-p{
+  position: relative;
+  height:295px;
+  width:410.67px;
+
+}
+.w-shoes-image-p{
+  -o-object-fit: cover;
+     object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+}
+ .women-image-save-p{
+ position: absolute;
+ top:2px;
+ right:5px;
+ padding: 2px;
+ background-color: white;
+ }
+ .women-image-tag-p{
+    background-color: #F82CAA;
+    border-radius: 2px;
+    top:92%;
+    margin-left: 5px;
+    color:white;
+    position: absolute;
+    height:17px;
+    width:59px;
+    padding:2px 8px;
+    font-size: 9px;
+    font-weight: normal;
+
+ }
+  .women-content-part-p{
+     height:96px;
+     
+  }
+    .women-title-p{
+    font-size:14px;
+    font-weight: bold;
+    margin-top:3px;
+    margin-bottom:3px;
+
+  }
+  .w-shoes-color-p{
+    width:15px;
+    height:15px;
+    border: 1px solid #91929D;
+  }
+   .w-shoes-final-price-p{ 
+    color: #F82CAA;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 14px;
+  }
+  .w-shoes-real-price-p{
+    font-size:14px;
+    -webkit-text-decoration-line: line-through;
+            text-decoration-line: line-through;
+    font-style: italic;
+    color: #91929D;
+    margin-left: 12px;
+
+  }
+    .w-shoes-rating-p{
+    font-size:10px;
+    font-weight: bold;
+    
+  }
+  
 }
 

@@ -110,6 +110,10 @@ dmx.config({
         }
       ],
       "outputType": "array"
+    },
+    "varitem": {
+      "meta": null,
+      "outputType": "number"
     }
   },
   "productlisting": {
@@ -149,6 +153,111 @@ dmx.config({
         },
         {
           "name": "rating_count",
+          "type": "number"
+        }
+      ],
+      "outputType": "array"
+    },
+    "repeat3": {
+      "meta": [
+        {
+          "name": "id",
+          "type": "number"
+        },
+        {
+          "name": "image",
+          "type": "text"
+        },
+        {
+          "name": "discount",
+          "type": "text"
+        },
+        {
+          "name": "type",
+          "type": "text"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "final_price",
+          "type": "text"
+        },
+        {
+          "name": "real_price",
+          "type": "text"
+        },
+        {
+          "name": "rating",
+          "type": "number"
+        },
+        {
+          "name": "rating_count",
+          "type": "number"
+        }
+      ],
+      "outputType": "array"
+    },
+    "repeat4": {
+      "meta": [
+        {
+          "name": "id",
+          "type": "number"
+        },
+        {
+          "name": "filter_item",
+          "type": "text"
+        }
+      ],
+      "outputType": "array"
+    },
+    "repeat5": {
+      "meta": [
+        {
+          "name": "size_item-id",
+          "type": "number"
+        },
+        {
+          "name": "filter_id",
+          "type": "number"
+        },
+        {
+          "name": "size_numb",
+          "type": "number"
+        }
+      ],
+      "outputType": "array"
+    },
+    "repeat6": {
+      "meta": [
+        {
+          "name": "brand_item_id",
+          "type": "number"
+        },
+        {
+          "name": "brand_name",
+          "type": "text"
+        }
+      ],
+      "outputType": "array"
+    },
+    "var1": {
+      "meta": null,
+      "outputType": "number"
+    },
+    "repeat7": {
+      "meta": [
+        {
+          "name": "size_item-id",
+          "type": "number"
+        },
+        {
+          "name": "filter_id",
+          "type": "number"
+        },
+        {
+          "name": "size_numb",
           "type": "number"
         }
       ],
