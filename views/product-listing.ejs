@@ -1,5 +1,7 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="productlisting" appConnect="local" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{}}" -->
-
+<dmx-array id="arrProducts" dmx-bind:items="jsonDS1.data.product.where(`name.lowercase()` ,formSearch.search_product.value.lowercase(), 'contains').top(varMore.value)"></dmx-array>
+<dmx-value id="varMore" dmx-bind:value="4"></dmx-value>
+<dmx-value id="varProgress" dmx-bind:value="varMore.value / jsonDS1.data.product.count() * 100"></dmx-value>
 <dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
 <meta name="ac:route" content="/product-listing">
 <div class="container px-0 label">
@@ -17,12 +19,18 @@
       <div class=" collapse" id="filterCollapse" is="dmx-bs5-collapse">
 
         <div id="crCheckbox" is="dmx-if" dmx-bind:condition="filter_type == 'checkbox'">
-          <input type="text" class="form-control" placeholder="Search Brands">
-          <div class="form-check" dmx-repeat:repeat6="jsonDS1.data.filter_option.where(`filter_id`, filter_id, '==')">
+          <input type="text" class="form-control mb-3" placeholder="Search Brands">
+          <div class="form-check m-3" dmx-repeat:repeat6="jsonDS1.data.filter_option.where(`filter_id`, filter_id, '==')">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-            <label class="form-check-label" for="flexCheckIndeterminate">
-              {{item_name}}
-            </label>
+            <div class="d-flex justify-content-between">
+              <label class="form-check-label " for="flexCheckIndeterminate">
+                {{item_name}}
+              </label>
+              <label class="form-check-label " for="flexCheckIndeterminate">
+
+                {{count}}
+              </label>
+            </div>
           </div>
         </div>
         <div id="crButtons" is="dmx-if" dmx-bind:condition="filter_type == 'button'">
@@ -39,7 +47,16 @@
     Sneakers <span class="label">(542)</span>
   </h4>
 </div>
-<div class="container-lg container-fluid women-shoes px-0 mt-4 position-relative w-100 ">
+<div class="container mt-4" dmx-show="arrProducts.items.count() == 0">
+  <h4>Sorry, we found no results for {{formSearch.search_product.value}}</h4>
+  <h5 class="mt-4">Try the following:</h5>
+
+  <ul> Check your spelling
+    <li>Try searching using a similar word </li>
+    <li> You might also want to remove some filters</li>
+  </ul>
+</div>
+<div class="container-lg container-fluid women-shoes px-0 mt-4 position-relative w-100 " dmx-hide="arrProducts.items.count() == 0">
   <div class="text-white d-flex position-absolute justify-content-between women-shoes-uppertext d-none d-lg-flex">
     <h3>
       SNEAKERS
@@ -106,15 +123,15 @@
         <span class="text-nowrap">Display <span class="btn" dmx-on:click="vardisplay.value == 1 ? vardisplay.setValue(0) : vardisplay.setValue(1)"><img src="assets/images/Category.svg" class="me-2"> </span><img src="assets/images/Square.svg" class="me-3"></span>
         <select class="form-select  m-0 ">
           <option selected class="font-medium12">Sort by: Most Relevant</option>
-          <option value="1">Black</option>
-          <option value="2">Brown</option>
-          <option value="3">White</option>
+          <option value="1">Newest</option>
+          <option value="2">Lowest Price</option>
+          <option value="3">Highest Price</option>
+          <option value="3">Most Rated</option>
         </select>
       </div>
     </div>
-    <div class="mt-0 mt-lg-4 d-flex flex-wrap" id="repeat1" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data['women-shoes']">
 
-
+    <div class="mt-0 mt-lg-4 d-flex flex-wrap" id="repeat1" is="dmx-repeat" dmx-bind:repeat="arrProducts.items.count() > 0 ? arrProducts.items : jsonDS1.data.product.top(varMore.value)">
       <dmx-value id="varIsFavorite" dmx-bind:value="0"></dmx-value>
       <div class="col-lg-4">
         <div class=" mb-4" dmx-class:women-section-part-p="vardisplay.value==1" dmx-class:women-section-part="vardisplay.value==0">
@@ -150,9 +167,16 @@
         </div>
       </div>
     </div>
+    <div class="progress ">
+      <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varProgress.value}}%"></div>
+    </div>
+    <div class="d-flex justify-content-center ">
+      You've seen {{varMore.value &gt; jsonDS1.data.product.count() ? jsonDS1.data.product.count() : varMore.value }} products out of {{jsonDS1.data.product.count()}}
+    </div>
+    <div class="d-flex justify-content-center ">
+
+
+      <button class="btn btn-dark text-white mt-3 " dmx-on:click="varMore.setValue(varMore.value + 4)" dmx-hide="varMore.value >= jsonDS1.data.product.count()">Load More</button>
+    </div>
   </div>
-
-
-
-
 </div>

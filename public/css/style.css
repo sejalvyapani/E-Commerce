@@ -288,6 +288,11 @@ background-image:url(/assets/images/sm-shoes.jpg);
     font-weight: bold;
     
   }
+  .progress{
+    width:200px;
+    height:3px !important;
+    margin:15px 89px;
+  }
 }
 @media(min-width:768px) and (max-width:991px){
    .swiper-slide{
@@ -490,12 +495,21 @@ background-image:url(/assets/images/sm-shoes.jpg);
     font-weight: bold;
     
   }
+  .progress{
+    width:300px;
+    height:4px !important;
+    margin:15px 190px;
+  }
 }
   @media(min-width:992px){
 .swiper-slide{
     width:208px !important;
   }
-
+ .progress{
+    width:400px;
+    height:5px !important;
+    margin:15px 270px;
+  }
 .section-part
 {
   width:180.24px;

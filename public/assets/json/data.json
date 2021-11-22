@@ -510,13 +510,14 @@
       "title": "Sports shoes (43)"
     }
   ],
-  "women-shoes": [
+  "product": [
     {
-      "shoes_id": 1,
+      "product_id": 1,
+      "item_id": 4,
       "image": "assets/images/shoes1.svg",
       "discount": "-42% OFF",
       "type": "Puma",
-      "name": "Name",
+      "name": "Puma Shoes",
       "color": "#FFD9F0,#DFF2F8,#3F52E8,#7884DE,#4F5162",
       "final_price": "74,95€",
       "real_price": "121,00€",
@@ -524,11 +525,12 @@
       "rating_count": 54
     },
     {
-      "shoes_id": 2,
+      "product_id": 2,
+      "item_id": 4,
       "image": "assets/images/shoes2.svg",
       "discount": "-54% OFF",
       "type": "Nike",
-      "name": "Name and Characteristics",
+      "name": "Nike Shoes",
       "color": "#800000,#a32638,#8b008b,#000000,#704241",
       "final_price": "52,95€",
       "real_price": "131,00€",
@@ -536,11 +538,12 @@
       "rating_count": 64
     },
     {
-      "shoes_id": 3,
+      "product_id": 3,
+      "item_id": 4,
       "image": "assets/images/shoes3.svg",
       "discount": "-32% OFF",
       "type": "Adidas",
-      "name": "Name and Characteristics",
+      "name": "Adidas Shoes",
       "color": "#555555,#DFF2F8,#004040,#000080,#23297a",
       "final_price": "85,95€",
       "real_price": "129,00€",
@@ -548,11 +551,12 @@
       "rating_count": 45
     },
     {
-      "shoes_id": 4,
+      "product_id": 4,
+      "item_id": 4,
       "image": "assets/images/shoes4.svg",
       "discount": "-42% OFF",
       "type": "Reebok",
-      "name": "Name and Characteristics",
+      "name": "Reebok Shoes",
       "color": "#bcb88a,#008b8b,#051118,#7884DE,#fbceb1",
       "final_price": "94,95€",
       "real_price": "185,00€",
@@ -560,11 +564,12 @@
       "rating_count": 65
     },
     {
-      "shoes_id": 5,
+      "product_id": 5,
+      "item_id": 4,
       "image": "assets/images/shoes5.svg",
       "discount": "-52% OFF",
       "type": "Vans",
-      "name": "Name and Characteristics",
+      "name": "Vans Shoes",
       "color": "#f08080,#DFF2F8,#ff0000,#f80080,#fa8072",
       "final_price": "54,95€",
       "real_price": "121,00€",
@@ -572,11 +577,12 @@
       "rating_count": 57
     },
     {
-      "shoes_id": 6,
+      "product_id": 6,
+      "item_id": 4,
       "image": "assets/images/shoes6.svg",
       "discount": "-32% OFF",
       "type": "Puma",
-      "name": "Name and Characteristics",
+      "name": "Puma Shoes",
       "color": "#e4717a,#cc6666,#3F52E8,#7884DE,#4F5162",
       "final_price": "64,95€",
       "real_price": "121,00€",
@@ -584,11 +590,12 @@
       "rating_count": 54
     },
     {
-      "shoes_id": 7,
+      "product_id": 7,
+      "item_id": 4,
       "image": "assets/images/shoes11.svg",
       "discount": "-10% OFF",
       "type": "Skechers",
-      "name": "Name and Characteristics",
+      "name": "Sketches Shoes",
       "color": "#FFD9F0,#bc8f8f,#f0ead6,#7884DE,#4F5162",
       "final_price": "94,95€",
       "real_price": "100,00€",
@@ -596,11 +603,12 @@
       "rating_count": 35
     },
     {
-      "shoes_id": 8,
+      "product_id": 8,
+      "item_id": 4,
       "image": "assets/images/shoes8.svg",
       "discount": "-41% OFF",
       "type": "Jordan",
-      "name": "Name and Characteristics",
+      "name": "Jordan Shoes",
       "color": "#556b2f,#00008b,#add8e6,#7884DE,#b0c4de",
       "final_price": "78,95€",
       "real_price": "121,00€",
@@ -608,11 +616,12 @@
       "rating_count": 67
     },
     {
-      "shoes_id": 9,
+      "product_id": 9,
+      "item_id": 4,
       "image": "assets/images/shoes9.svg",
       "discount": "-39% OFF",
       "type": "Vans",
-      "name": "Name and Characteristics",
+      "name": "Vans Shoes",
       "color": "#4b0082,#800080,#3F52E8,#9932cc,#4F5162",
       "final_price": "64,95€",
       "real_price": "110,00€",
@@ -661,27 +670,32 @@
     {
       "item_id": 1,
       "filter_id": 3,
-      "item_name": "Aaiko"
+      "item_name": "Aaiko",
+      "count": "4"
     },
     {
       "item_id": 2,
       "filter_id": 3,
-      "item_name": "Ambercrombie & Fitch"
+      "item_name": "Ambercrombie & Fitch",
+      "count": "55"
     },
     {
       "item_id": 3,
       "filter_id": 3,
-      "item_name": "Adidas"
+      "item_name": "Adidas",
+      "count": "19"
     },
     {
       "item_id": 4,
       "filter_id": 3,
-      "item_name": "Abrand jeans"
+      "item_name": "Abrand jeans",
+      "count": "90"
     },
     {
       "item_id": 5,
       "filter_id": 3,
-      "item_name": "Abro"
+      "item_name": "Abro",
+      "count": "8"
     },
     {
       "item_id": 6,
