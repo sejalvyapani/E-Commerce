@@ -512,7 +512,7 @@
   ],
   "women-shoes": [
     {
-      "id": 1,
+      "shoes_id": 1,
       "image": "assets/images/shoes1.svg",
       "discount": "-42% OFF",
       "type": "Puma",
@@ -524,7 +524,7 @@
       "rating_count": 54
     },
     {
-      "id": 2,
+      "shoes_id": 2,
       "image": "assets/images/shoes2.svg",
       "discount": "-54% OFF",
       "type": "Nike",
@@ -536,7 +536,7 @@
       "rating_count": 64
     },
     {
-      "id": 3,
+      "shoes_id": 3,
       "image": "assets/images/shoes3.svg",
       "discount": "-32% OFF",
       "type": "Adidas",
@@ -548,7 +548,7 @@
       "rating_count": 45
     },
     {
-      "id": 4,
+      "shoes_id": 4,
       "image": "assets/images/shoes4.svg",
       "discount": "-42% OFF",
       "type": "Reebok",
@@ -560,7 +560,7 @@
       "rating_count": 65
     },
     {
-      "id": 5,
+      "shoes_id": 5,
       "image": "assets/images/shoes5.svg",
       "discount": "-52% OFF",
       "type": "Vans",
@@ -572,7 +572,7 @@
       "rating_count": 57
     },
     {
-      "id": 6,
+      "shoes_id": 6,
       "image": "assets/images/shoes6.svg",
       "discount": "-32% OFF",
       "type": "Puma",
@@ -584,7 +584,7 @@
       "rating_count": 54
     },
     {
-      "id": 7,
+      "shoes_id": 7,
       "image": "assets/images/shoes11.svg",
       "discount": "-10% OFF",
       "type": "Skechers",
@@ -596,7 +596,7 @@
       "rating_count": 35
     },
     {
-      "id": 8,
+      "shoes_id": 8,
       "image": "assets/images/shoes8.svg",
       "discount": "-41% OFF",
       "type": "Jordan",
@@ -608,7 +608,7 @@
       "rating_count": 67
     },
     {
-      "id": 9,
+      "shoes_id": 9,
       "image": "assets/images/shoes9.svg",
       "discount": "-39% OFF",
       "type": "Vans",
@@ -634,7 +634,7 @@
     {
       "filter_id": 3,
       "filter_item": "Brand",
-      "filter_type": "brand"
+      "filter_type": "checkbox"
     },
     {
       "filter_id": 4,
@@ -644,7 +644,7 @@
     {
       "filter_id": 5,
       "filter_item": "Size",
-      "filter_type": "size"
+      "filter_type": "button"
     },
     {
       "filter_id": 6,
@@ -657,63 +657,61 @@
       "filter_type": "price"
     }
   ],
-  "brand": [
+  "filter_option": [
     {
-      "brand_item_id": 1,
-      "filter_type": "brand",
-      "brand_name": "Aaiko"
+      "item_id": 1,
+      "filter_id": 3,
+      "item_name": "Aaiko"
     },
     {
-      "brand_item_id": 2,
-      "filter_type": "brand",
-      "brand_name": "Ambercrombie & Fitch"
+      "item_id": 2,
+      "filter_id": 3,
+      "item_name": "Ambercrombie & Fitch"
     },
     {
-      "brand_item_id": 3,
-      "filter_type": "brand",
-      "brand_name": "Adidas"
+      "item_id": 3,
+      "filter_id": 3,
+      "item_name": "Adidas"
     },
     {
-      "brand_item_id": 4,
-      "filter_type": "brand",
-      "brand_name": "Abrand jeans"
+      "item_id": 4,
+      "filter_id": 3,
+      "item_name": "Abrand jeans"
     },
     {
-      "brand_item_id": 5,
-      "filter_type": "brand",
-      "brand_name": "Abro"
-    }
-  ],
-  "size": [
-    {
-      "size_item-id": 1,
-      "filter_type": "size",
-      "size_numb": 32
+      "item_id": 5,
+      "filter_id": 3,
+      "item_name": "Abro"
     },
     {
-      "size_item-id": 1,
-      "filter_type": "size",
-      "size_numb": 34
+      "item_id": 6,
+      "filter_id": 5,
+      "item_name": 32
     },
     {
-      "size_item-id": 1,
-      "filter_type": "size",
-      "size_numb": 37
+      "item_id": 7,
+      "filter_id": 5,
+      "item_name": 34
     },
     {
-      "size_item-id": 1,
-      "filter_type": "size",
-      "size_numb": 40
+      "item_id": 8,
+      "filter_id": 5,
+      "item_name": 37
     },
     {
-      "size_item-id": 1,
-      "filter_type": "size",
-      "size_numb": 42
+      "item_id": 9,
+      "filter_id": 5,
+      "item_name": 40
     },
     {
-      "size_item-id": 1,
-      "filter_type": "size",
-      "size_numb": 43
+      "item_id": 10,
+      "filter_id": 5,
+      "item_name": 42
+    },
+    {
+      "item_id": 11,
+      "filter_id": 5,
+      "item_name": 43
     }
   ]
 }

@@ -1,4 +1,5 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="productlisting" appConnect="local" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{}}" -->
+
 <dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
 <meta name="ac:route" content="/product-listing">
 <div class="container px-0 label">
@@ -11,25 +12,24 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" id="repeat4" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.offcanvas_filter">
-      <h5 class="d-flex justify-content-between" dmx-on:click="varFilter.setValue(filter_type)">{{filter_item}} <span class="btn btn-icon" dmx-on:click="filterCollapse.toggle()"><i class="fas fa-plus"></i></span>
+      <h5 class="d-flex justify-content-between">{{filter_item}} <span class="btn btn-icon" dmx-on:click="filterCollapse.toggle()"><i class="fas fa-plus"></i></span>
       </h5>
-      <div class="collapse" id="filterCollapse" is="dmx-bs5-collapse">
+      <div class=" collapse" id="filterCollapse" is="dmx-bs5-collapse">
 
-        <input type="text" class="form-control" dmx-show="varFilter.value== 'brand'" placeholder="Search Brands">
-
-        <div class="form-check" dmx-repeat:repeat6="jsonDS1.data.brand.where(`filter_type`, varFilter.value, '==')">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
-            {{brand_name}}
-          </label>
+        <div id="crCheckbox" is="dmx-if" dmx-bind:condition="filter_type == 'checkbox'">
+          <input type="text" class="form-control" placeholder="Search Brands">
+          <div class="form-check" dmx-repeat:repeat6="jsonDS1.data.filter_option.where(`filter_id`, filter_id, '==')">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+            <label class="form-check-label" for="flexCheckIndeterminate">
+              {{item_name}}
+            </label>
+          </div>
         </div>
-
-        <div class="d-flex flex-wrap " id="repeat7" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.size.where(`filter_type`, varFilter.value, '==')">
-
-          <button class="btn btn-outline-dark me-2 px-3 mt-2 rounded-0">{{size_numb}}</button>
+        <div id="crButtons" is="dmx-if" dmx-bind:condition="filter_type == 'button'">
+          <div class="d-flex flex-wrap " id="repeat7" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.filter_option.where(`filter_id`, filter_id, '==')">
+            <button class="btn btn-outline-dark me-2 px-3 mt-2 rounded-0">{{item_name}}</button>
+          </div>
         </div>
-
-
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
     Sneakers <span class="label">(542)</span>
   </h4>
 </div>
-<div class="container women-shoes px-0 position-relative w-100 ">
+<div class="container-lg container-fluid women-shoes px-0 mt-4 position-relative w-100 ">
   <div class="text-white d-flex position-absolute justify-content-between women-shoes-uppertext d-none d-lg-flex">
     <h3>
       SNEAKERS
@@ -62,7 +62,7 @@
     </div>
   </div>
 </div>
-<div class="d-flex justify-content-end btn d-lg-none p-3" dmx-on:click="offcanvasfilter.toggle()">Filter & Sort</div>
+<div class="d-flex justify-content-end btn d-lg-none me-md-3 p-3" dmx-on:click="offcanvasfilter.toggle()">Filter & Sort</div>
 <dmx-value id="vardisplay" dmx-bind:value="0"></dmx-value>
 <div class="container px-0  mt-0 mt-lg-5 " dmx-class:d-flex="vardisplay.value==0">
 

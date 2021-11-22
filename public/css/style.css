@@ -241,7 +241,7 @@ background-image:url(/assets/images/sm-shoes.jpg);
  .women-image-tag{
     background-color: #F82CAA;
     border-radius: 2px;
-    top:92%;
+    top:83%;
     margin-left: 5px;
     color:white;
     position: absolute;
@@ -345,8 +345,12 @@ background-image:url(/assets/images/sm-shoes.jpg);
     
   }
   .category-image{
-    width:150px;
-    height:150px
+    width:176px;
+    height:150px;
+     -o-object-fit: cover;
+     object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
   }
   
     .running{
@@ -397,7 +401,95 @@ background-image:url(/assets/images/sm-shoes.jpg);
  left:40px;
  font-size:20px;
 }
+  .women-shoes{
+    background-image: url(/assets/images/w-sm-head.jpg);
+ background-size: cover;    
+    height:300px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .w-shoes-p{
+    top:0px;
+    left:16px;
+
+    text-align: justify;
+  }
+  .women-section-part
+{
+  width:340px;
+  height:320px;
+ margin: 0px 10px;
   
+}
+.women-image-part{
+  position: relative;
+  height:224px;
+  width:340px;
+
+}
+.w-shoes-image{
+  -o-object-fit: cover;
+     object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+}
+ .women-image-save{
+ position: absolute;
+ top:2px;
+ right:5px;
+ padding: 2px;
+ background-color: white;
+ }
+ .women-image-tag{
+    background-color: #F82CAA;
+    border-radius: 2px;
+    top:90%;
+    margin-left: 5px;
+    color:white;
+    position: absolute;
+    height:17px;
+    width:59px;
+    padding:2px 8px;
+    font-size: 9px;
+    font-weight: normal;
+
+ }
+  .women-content-part{
+     height:96px;
+     
+  }
+    .women-title{
+    font-size:14px;
+    font-weight: bold;
+    margin-top:3px;
+    margin-bottom:3px;
+
+  }
+  .w-shoes-color{
+    width:15px;
+    height:15px;
+    border: 1px solid #91929D;
+  }
+   .w-shoes-final-price{ 
+    color: #F82CAA;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 14px;
+  }
+  .w-shoes-real-price{
+    font-size:14px;
+    -webkit-text-decoration-line: line-through;
+            text-decoration-line: line-through;
+    font-style: italic;
+    color: #91929D;
+    margin-left: 12px;
+
+  }
+    .w-shoes-rating{
+    font-size:10px;
+    font-weight: bold;
+    
+  }
 }
   @media(min-width:992px){
 .swiper-slide{
