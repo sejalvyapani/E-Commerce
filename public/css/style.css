@@ -1,6 +1,10 @@
 body{
   font-family:'Inter',sans-serif;
 }
+.store_button{
+  width:95px;
+  height:34px;
+}
 .head-text{
   margin-left: 110px;
 }
@@ -20,7 +24,9 @@ body{
   width:24px;
   height:24px;
 }
-
+.color_swiper{
+  width:110px !important;
+}
 .bottom-left{
   
    top:180px;
@@ -95,7 +101,7 @@ font-size: 14px;
  
   @media(max-width:571px){
 
- .swiper-slide{
+ .swiper{
    width:120px !important;
  }
 
@@ -295,7 +301,7 @@ background-image:url(/assets/images/sm-shoes.jpg);
   }
 }
 @media(min-width:768px) and (max-width:991px){
-   .swiper-slide{
+   .swiper{
    width:180px !important;
  }
 
@@ -502,7 +508,7 @@ background-image:url(/assets/images/sm-shoes.jpg);
   }
 }
   @media(min-width:992px){
-.swiper-slide{
+.swiper{
     width:208px !important;
   }
  .progress{
@@ -743,6 +749,51 @@ background-image:url(/assets/images/sm-shoes.jpg);
     font-weight: bold;
     
   }
-  
+  .product_image{
+    
+    height:1065px;
+    top:86px;
+    right:35.76%;
+    Padding:0px, 0px, 0px, 80px;
+
+  }
+  .top_image_group{
+        width: 845px;
+height: 522.5px;
+left: 80px;
+top: 0px;
+  }
+  .bottom_image_group{
+  width: 845px;
+height: 522.5px;
+left: 80px;
+    margin-top: 20px;
+  }
+  .product_details{
+    
+height: 2479px;
+left: 925px;
+top: 86px;
+  }
+  .product_offer{
+height: 23px;
+width: 84.99px;
+background: #89D9D3;
+border-radius: 2px;
+margin: 12px 0px;
+    padding-left: 12px;
+    padding-top: 3px;
+  }
+  .product_color{
+    width:86px;
+    height:86px;
+  }
+    .product_size{
+      width: 93.75px;
+height: 42px;
+    }
+    .product_available_check{
+      color: #219188;
+    }
 }
 

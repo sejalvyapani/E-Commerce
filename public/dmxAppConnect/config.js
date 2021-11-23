@@ -114,9 +114,30 @@ dmx.config({
     "varitem": {
       "meta": null,
       "outputType": "number"
+    },
+    "repeat2": {
+      "meta": [
+        {
+          "name": "day_id",
+          "type": "number"
+        },
+        {
+          "name": "day_name",
+          "type": "text"
+        },
+        {
+          "name": "s_open_time",
+          "type": "text"
+        },
+        {
+          "name": "s_close_time",
+          "type": "text"
+        }
+      ],
+      "outputType": "array"
     }
   },
-  "productlisting": {
+  "productdetails": {
     "repeat1": {
       "meta": [
         {
