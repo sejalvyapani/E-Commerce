@@ -8,11 +8,7 @@ body{
 .head-text{
   margin-left: 110px;
 }
-.heading{
-  font-size:32px;
-  letter-spacing: 2px;
-  font-weight:600;
-}
+
 .h-divider{
  margin-top:5px;
  margin-bottom:5px;
@@ -104,6 +100,27 @@ font-size: 14px;
  .swiper{
    width:120px !important;
  }
+  .product_color{
+    width:86px;
+    height:86px;
+  }
+ .user_image{
+      width:24px;
+      height:24px;
+    }
+    .product_offer{
+height: 23px;
+width: 84.99px;
+background: #89D9D3;
+border-radius: 2px;
+margin: 12px 0px;
+    padding-left: 12px;
+    padding-top: 3px;
+  }
+   .product_size{
+      width: 76.75px;
+height: 42px;
+    }
 
   .section-part{
     width:144px;
@@ -304,7 +321,27 @@ background-image:url(/assets/images/sm-shoes.jpg);
    .swiper{
    width:180px !important;
  }
-
+  .product_color{
+    width:106px;
+    height:86px;
+  }
+.user_image{
+      width:24px;
+      height:24px;
+    }
+    .product_offer{
+height: 23px;
+width: 84.99px;
+background: #89D9D3;
+border-radius: 2px;
+margin: 12px 0px;
+    padding-left: 12px;
+    padding-top: 3px;
+  }
+   .product_size{
+      width: 76.75px;
+height: 42px;
+    }
   .section-part{
     width:160px;
     height:260px;
@@ -511,6 +548,27 @@ background-image:url(/assets/images/sm-shoes.jpg);
 .swiper{
     width:208px !important;
   }
+  .heading{
+  font-size:32px;
+  letter-spacing: 2px;
+  font-weight:600;
+}
+.bottom-text{
+  margin-top:92px;
+  
+}
+.cart_item_details{
+  height: 218px;
+width: 571px;
+}
+.item_checkout{
+  width: 378px;
+height: 218px;
+}
+.cart_image{
+  width:272px;
+  height:218px;
+}
  .progress{
     width:400px;
     height:5px !important;
@@ -677,8 +735,6 @@ background-image:url(/assets/images/sm-shoes.jpg);
 {
   width:410.67px;
   height:391px;
- 
-  
 }
 .women-image-part-p{
   position: relative;
@@ -754,7 +810,7 @@ background-image:url(/assets/images/sm-shoes.jpg);
     height:1065px;
     top:86px;
     right:35.76%;
-    Padding:0px, 0px, 0px, 80px;
+   width:845px;
 
   }
   .top_image_group{
@@ -794,6 +850,16 @@ height: 42px;
     }
     .product_available_check{
       color: #219188;
+    }
+    .review_progress{
+      border-radius: 19px;
+      background: #D3D4D8;
+      width:191.21px;
+      height:8px;
+    }
+    .user_image{
+      width:24px;
+      height:24px;
     }
 }
 

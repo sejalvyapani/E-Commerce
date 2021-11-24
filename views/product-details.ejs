@@ -1,21 +1,19 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" id="productdetails" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{},dmxSwiper:{},dmxBootstrap5Navigation:{}}" is="dmx-app" appConnect="local" -->
 <dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
 <meta name="ac:route" content="/product-details">
-<div class="container px-0 label">
+<dmx-value id="varreview" dmx-bind:value="jsonDS1.data.user_review[0].review_star / 5 * 100"></dmx-value>
+<div class="container px-0 d-none d-lg-block label">
   {{jsonDS1.data.menu_categories.where(`category_id`, varCategory.value, '==').values(`title`)}} <i class="fas fa-angle-right ms-2 me-2"></i> {{jsonDS1.data.menu_items.where(`item_id`, varItem.value, '==').values(`title`)}}
   <h4 class="text-dark">
     Sneakers <span class="label">(542)</span>
   </h4>
-
 </div>
-<div class="container d-flex mt-4 px-0">
-
-
-  <div class="product_image col-lg-8">
-    <div class="top_image_group ">
+<div class="container d-lg-flex mt-4 px-0">
+  <div class="product_image col-lg-8  d-none d-lg-block col-sm-12">
+    <div class="top_image_group d-none d-lg-block">
       <img src="assets/images/w-sm-head.jpg" class="w-100 h-100 w-shoes-image">
     </div>
-    <div class="bottom_image_group">
+    <div class="bottom_image_group d-none d-lg-block">
       <img src="assets/images/sm-pic4.svg" class="w-100 h-100 w-shoes-image">
     </div>
     <div class="mt-4  ">
@@ -32,11 +30,10 @@
 
       </ul>
     </div>
-    <div class=" font-large14 mt-5">
+    <div class=" font-large14  mt-5">
       <p>Celebrate the beauty of our planet with this adidas Stan Smith shoe. Created in collaboration with HER Studio London, this iconic sneaker features a heavenly floral print. Crafted from recycled materials, it has a sleek, sleek synthetic upper that looks like leather. A classic shoe that reduces waste. And to go even further: this product is designed with Primegreen, a series of high performance recycled materials. 50% of the upper is made from recycled materials. No virgin polyester.</p>
     </div>
     <div class="d-flex font-large14 justify-content-between mt-4">
-
       <ul class="list-unstyled ">
         <li class="mt-3"><i class="far fa-check-circle me-2"></i>Standard Fit</li>
         <li class="mt-3"><i class="far fa-check-circle me-2"></i>Lace-up closure</li>
@@ -50,37 +47,35 @@
       </ul>
     </div>
     <div class="d-flex mt-5 ">
-
-      <div class="col-lg-4">
-
+      <div class="col-lg-5">
         <h5 class="fw-bold">Customer reviews</h5>
         <div class="d-flex align-items-center mt-3">
-          <span class="font-medium12 text-primary me-2 fw-bold"> 5 Star</span>
-          <div class="progress m-0 w-50 ">
-            <div class="progress-bar bg-dark" role="progressbar" style="width: 44%"></div>
+          <span class="font-medium12 text-primary me-3 fw-bold"> 5 Star</span>
+          <div class="progress  m-0 me-3 review_progress ">
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">44%</span>
+          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
         </div>
         <div class="d-flex align-items-center mt-3">
-          <span class="font-medium12 text-primary me-2 fw-bold"> 4 Star</span>
-          <div class="progress m-0 w-50 ">
-            <div class="progress-bar bg-dark" role="progressbar" style="width: 20%"></div>
+          <span class="font-medium12 text-primary me-3 fw-bold"> 4 Star</span>
+          <div class="progress m-0 review_progress ">
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">20%</span>
+          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
         </div>
         <div class="d-flex align-items-center mt-3">
-          <span class="font-medium12 text-primary me-2 fw-bold"> 3 Star</span>
-          <div class="progress m-0 w-50 ">
-            <div class="progress-bar bg-dark" role="progressbar" style="width: 18%"></div>
+          <span class="font-medium12 text-primary me-3 fw-bold"> 3 Star</span>
+          <div class="progress m-0 review_progress ">
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">18%</span>
+          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
         </div>
         <div class="d-flex align-items-center mt-3">
-          <span class="font-medium12 text-primary me-2 fw-bold"> 2 Star</span>
-          <div class="progress m-0 w-50 ">
-            <div class="progress-bar bg-dark" role="progressbar" style="width: 10%"></div>
+          <span class="font-medium12 text-primary me-3 fw-bold"> 2 Star</span>
+          <div class="progress m-0 review_progress ">
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">10%</span>
+          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
         </div>
         <a href="" class="text-decoration-none font-medium12 fw-bold"> How are ratings Calculated?</a>
         <div class="mt-5 ">
@@ -89,26 +84,38 @@
           <button class="btn btn-outline-dark fw-bold font-large14 w-75 rounded-0"> Write a customer review</button>
         </div>
       </div>
-      <div class="col-lg-8">
-        <div class="d-flex ">
-          <form class="d-flex form-border" method="post" id="formSearch">
+      <div class="col-lg-7">
+        <div class="d-flex justify-content-between">
+          <form class="d-flex form-border w-100 p-1" method="post" id="formSearch">
             <img src="assets/images/Search.svg" class="ms-1 d-none d-lg-inline">
             <input class=" w-auto form-control border-0 rounded-0 font-large14 me-2" type="search" placeholder="Search in reviews" aria-label="Search" id="search_reivew">
-
-
           </form>
-          <select class="form-select ms-3  w-auto ">
+          <select class="form-select form-border ms-3 rounded-0 w-auto font-medium12 fw-bold">
             <option selected class="font-medium12">Sort by: Top Review</option>
             <option value="1">Newest</option>
             <option value="2">Oldest</option>
             <option value="3">Most Rated</option>
           </select>
         </div>
+        <div class="mt-4" id="repeat2" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.user_review">
+          <h5 class="font-medium12 mt-4"> <img dmx-bind:src="user_image" class="user_image"> {{user_name}}</h5>
+          <div class="d-flex align-items-baseline">
+            <div id="repeat_review" is="dmx-repeat" dmx-bind:repeat="5">
+              <span dmx-show="review_star > $index"> <i class="fas fa-star"></i></span>
+              <span dmx-hide=" review_star > $index"> <i class="far fa-star"></i></span>
+            </div>
+            <h5 class="font-large14 ms-2 fw-bold"> {{review_comment}}</h5>
+          </div>
+          <p class="text-black-50 font-medium12 m-0">{{review_date}}</p>
+          <p class="font-medium12 fw-bold text-success mb-1">Verified Purchase</p>
+          <p class="font-large14">{{review_descripion}}</p>
+          <button class="btn font-large14 btn-outline-dark border-2 rounded-0 w-25 ">Helpful</button>
+          <span class="btn font-large14 ms-2">Report Abuse</span>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="product_details  col-lg-4 mt-3 ">
+  <div class="product_details  ms-4 col-lg-4 col-sm-12 mt-3 ">
     <h5 class="text-black-50 font-medium12">Nike Originals</h5>
     <h4 class="fw-bold">Air Jordan 1 Retro High</h4>
     <div class="d-flex">
@@ -118,40 +125,179 @@
       </div>
       <div class="ms-2">{{rating_count}}</div>
     </div>
-    <p class="font-large14 mt-3">The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.</p>
+    <p class="font-large14 d-none d-block mt-3">The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.</p>
     <div>
       <h5 class="font-large14 text-black-50">Available in 5 styles</h5>
       <div is="dmx-swiper" id="swiper1" grab-cursor="true" slides-per-view="4" dmx-bind:slides="10" navigation="true">
         <div class="swiper-slide color_swiper">
-          <img src="assets/images/sm-pic2.svg" class="product_color">
+          <img src="assets/images/sm-pic2.svg" class="product_color ">
         </div>
       </div>
-
     </div>
-    <div class="text-dark product_offer mt-4  font-medium12 ">-22% OFF</div>
-    <div class="d-flex mb-4">
-
-      <div class="w-shoes-real-price ms-0">121,00 €</div>
-      <div class="w-shoes-final-price ms-2"> 99,99 € </div>
+    <div class="  d-flex flex-lg-column justify-content-between align-items-baseline">
+      <div class="text-dark product_offer mt-4  font-medium12 ">-22% OFF</div>
+      <div class="d-flex mb-4 me-2">
+        <div class="w-shoes-real-price ms-0">121,00 €</div>
+        <div class="w-shoes-final-price ms-2"> 99,99 € </div>
+      </div>
     </div>
     <div class="d-flex flex-wrap  " id="buttonrepeat" is="dmx-repeat" dmx-bind:repeat="16">
-
       <button class="btn btn-outline-dark me-2 font-large14 px-3 mt-2 product_size rounded-0">32</button>
     </div>
-    <div class="mt-4 mb-4">
+    <div class="mt-4 mb-4 d-none d-lg-block">
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Delivery to 75018 available</p>
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Click&Collect at Paris Nord available</p>
     </div>
-    <div class="d-flex justify-content-center btn bg-dark text-white rounded-0 align-items-center">
-
-
-      <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+    <div class="d-flex justify-content-center mt-4 me-2 btn bg-dark text-white rounded-0 align-items-center">
+      <i class="fas fa-shopping-cart me-2 "></i>Add to Cart
     </div>
-    <p class="font-medium12 fw-bold mt-2"> Hurry! This item is <span class="text-primary">selling fast</span></p>
-    <div class="font-large14 mt-5">
+    <div class="d-flex  d-lg-none justify-content-center me-2 mt-4 btn  btn-outline-dark  rounded-0 align-items-center">
+      <i class="far fa-heart me-2"></i>Favorite
+    </div>
+    <p class="font-medium12 fw-bold mt-2 d-none d-lg-block "> Hurry! This item is <span class="text-primary">selling fast</span></p>
+    <div class="font-large14 d-none d-lg-block mt-5">
       <p><i class="far fa-heart me-2"></i> Add to Favorites</p>
       <P class="text-black-50"> <i class="fas fa-undo me-2"></i>90 day return policy</P>
       <p class="text-black-50"> <i class="fas fa-shopping-cart me-2"></i> Free shipping for loyalty club members</p>
+    </div>
+    <div class="d-lg-none mt-5 mb-5">
+      <span class="d-flex btn justify-content-between mt-2" dmx-on:click="Descollapse.toggle()">
+        <h5>Description</h5> <i class="fas fa-angle-down me-2"></i>
+      </span>
+      <div class="collapse" id="Descollapse" is="dmx-bs5-collapse">
+        <p class="font-large12 d-block mt-3">The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.</p>
+      </div>
+      <span class="d-flex justify-content-between mt-3 btn" dmx-on:click="Matcollapse.toggle()">
+        <h5>Materials</h5> <i class="fas fa-angle-down me-2"></i>
+      </span>
+      <div class="collapse" id="Matcollapse" is="dmx-bs5-collapse">
+        <ul class="list-unstyled ">
+          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Standard Fit</li>
+          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Lace-up closure</li>
+          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Synthetic upper</li>
+          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Rubber outsole</li>
+        </ul>
+      </div>
+      <span class="d-flex justify-content-between mt-3 btn" dmx-on:click="Shicollapse.toggle()">
+        <h5>Shipping and Returns</h5> <i class="fas fa-angle-down me-2"></i>
+      </span>
+      <div class="collapse" id="Shicollapse" is="dmx-bs5-collapse">
+        <P class="font-medium12"> <i class="fas fa-undo me-2"></i>90 day return policy</P>
+        <p class="font-medium12"> <i class="fas fa-shopping-cart me-2"></i> Free shipping for loyalty club members</p>
+      </div>
+      <span class="d-flex justify-content-between mt-3 btn" dmx-on:click="Revcollapse.toggle()">
+        <h5>Reviews (45) 4.1★</h5> <i class="fas fa-angle-down me-2"></i>
+      </span>
+      <div class="collapse" id="Revcollapse" is="dmx-bs5-collapse">
+        <div class=" mt-5 ">
+          <div class="col-sm-12">
+            <h5 class="fw-bold">Customer reviews</h5>
+            <div class="d-flex align-items-center mt-3">
+              <span class="font-medium12 text-primary me-3 fw-bold"> 5 Star</span>
+              <div class="progress  m-0 review_progress ">
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+              </div>
+              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+            </div>
+            <div class="d-flex align-items-center mt-3">
+              <span class="font-medium12 text-primary me-3 fw-bold"> 4 Star</span>
+              <div class="progress m-0 review_progress ">
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+              </div>
+              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+            </div>
+            <div class="d-flex align-items-center mt-3">
+              <span class="font-medium12 text-primary me-3 fw-bold"> 3 Star</span>
+              <div class="progress m-0 review_progress ">
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+              </div>
+              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+            </div>
+            <div class="d-flex align-items-center mt-3">
+              <span class="font-medium12 text-primary me-3 fw-bold"> 2 Star</span>
+              <div class="progress m-0 review_progress ">
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+              </div>
+              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+            </div>
+            <a href="" class="text-decoration-none font-medium12 fw-bold"> How are ratings Calculated?</a>
+            <div class="mt-5 ">
+              <h5 class="fw-bold"> Review this product </h5>
+              <p class="font-large14"> Share your thought with other customers</p>
+              <button class="btn btn-outline-dark fw-bold font-large14 w-75 rounded-0"> Write a customer review</button>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="d-flex mt-4 ">
+              <form class="d-flex form-border w-75  p-1" method="post" id="ReviewSearch">
+                <img src="assets/images/Search.svg">
+                <input class="  form-control border-0 rounded-0 font-medium12 " type="search" placeholder=" Reviews" aria-label="Search" id="search_reivew_coll">
+              </form>
+              <select class="form-select form-border w-75 ms-3 rounded-0 me-5  font-medium12 fw-bold">
+                <option selected class="font-medium12">Sort by: Top Review</option>
+                <option value="1">Newest</option>
+                <option value="2">Oldest</option>
+                <option value="3">Most Rated</option>
+              </select>
+            </div>
+            <div class="mt-4" id="userrepeat" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.user_review">
+              <h5 class="font-medium12 mt-4"> <img dmx-bind:src="user_image" class="user_image"> {{user_name}}</h5>
+              <div class="d-flex align-items-baseline">
+                <div id="repeat_review_coll" is="dmx-repeat" dmx-bind:repeat="5">
+                  <span dmx-show="review_star > $index"> <i class="fas fa-star"></i></span>
+                  <span dmx-hide=" review_star > $index"> <i class="far fa-star"></i></span>
+                </div>
+                <h5 class="font-large14 ms-2 fw-bold"> {{review_comment}}</h5>
+              </div>
+              <p class="text-black-50 font-medium12 m-0">{{review_date}}</p>
+              <p class="font-medium12 fw-bold text-success mb-1">Verified Purchase</p>
+              <p class="font-large14">{{review_descripion}}</p>
+              <button class="btn font-large14 btn-outline-dark border-2 rounded-0 w-25 ">Helpful</button>
+              <span class="btn font-large14 ms-2">Report Abuse</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container px-0  ">
+  <div class="d-flex justify-content-between ">
+    <span class="d-flex justify-content-start  fw-bold  heading  mb-0 d-lg-block ms-4">
+      YOU MAY ALSO LIKE...
+    </span>
+    <a href="" class="d-lg-none me-3 fw-bold text-decoration-none"> See More</a>
+  </div>
+  <div class="mt-4" is="dmx-swiper" id="swiper2" dmx-bind:slides="jsonDS1.data.recommended_for_you" grab-cursor="true" navigation="true" slides-per-view="2.5" slides-per-view-lg="6" slides-per-view-xl="6">
+    <div class="swiper-slide swiper">
+      <dmx-value id="var1IsFavorite" dmx:bind:value="0"></dmx-value>
+      <div class="section-part">
+        <div class="image-part">
+          <img dmx-bind:src="image" class="w-100 h-100">
+          <div class="btn btn-icon image-save mt-1 px-1" dmx-on:click="var1IsFavorite.value == 1 ? var1IsFavorite.setValue(0) : var1IsFavorite.setValue(1)">
+            <span dmx-hide="var1IsFavorite.value"> <i class="bi-suit-heart"></i></span>
+            <span dmx-show="var1IsFavorite.value"> <i class="bi-heart-fill text-danger"></i></span>
+          </div>
+          <div class="image-tag d-none d-lg-block">
+            {{discount}}
+          </div>
+        </div>
+        <div class="content-part">
+          <div class="label d-none d-lg-block">{{type}}</div>
+          <div class="title">{{name}}</div>
+          <div class="d-flex">
+            <div class="final-price"> {{final_price}} </div>
+            <div class="real-price">{{real_price}}</div>
+          </div>
+          <div class="rating d-flex">
+            <div id="repeat3" is="dmx-repeat" dmx-bind:repeat="5">
+              <span dmx-show="rating > $index"><i class="bi-star-fill"></i></span>
+              <span dmx-hide="rating > $index"><i class="bi-star"></i></span>
+            </div>
+            <div class="ms-2">{{rating_count}}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -139,45 +139,8 @@ dmx.config({
   },
   "productdetails": {
     "repeat1": {
-      "meta": [
-        {
-          "name": "id",
-          "type": "text"
-        },
-        {
-          "name": "image",
-          "type": "text"
-        },
-        {
-          "name": "discount",
-          "type": "text"
-        },
-        {
-          "name": "type",
-          "type": "text"
-        },
-        {
-          "name": "name",
-          "type": "text"
-        },
-        {
-          "name": "final_price",
-          "type": "text"
-        },
-        {
-          "name": "real_price",
-          "type": "text"
-        },
-        {
-          "name": "rating",
-          "type": "number"
-        },
-        {
-          "name": "rating_count",
-          "type": "number"
-        }
-      ],
-      "outputType": "array"
+      "meta": null,
+      "outputType": "text"
     },
     "repeat3": {
       "meta": [
@@ -283,6 +246,14 @@ dmx.config({
         }
       ],
       "outputType": "array"
+    },
+    "repeat2": {
+      "meta": null,
+      "outputType": "number"
+    },
+    "varreview": {
+      "meta": null,
+      "outputType": "number"
     }
   }
 });

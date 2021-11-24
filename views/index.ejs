@@ -64,7 +64,6 @@
           <div class="btn btn-icon image-save mt-1 px-1" dmx-on:click="varIsFavorite.value == 1 ? varIsFavorite.setValue(0) : varIsFavorite.setValue(1)">
             <span dmx-hide="varIsFavorite.value"> <i class="bi-suit-heart"></i></span>
             <span dmx-show="varIsFavorite.value"> <i class="bi-heart-fill text-danger"></i></span>
-
           </div>
           <div class="image-tag d-none d-lg-block">{{discount}}
           </div>
@@ -101,7 +100,6 @@
           <div class="btn btn-icon  mt-1 px-1" dmx-on:click="var3IsFavorite.value == 1 ? var3IsFavorite.setValue(0) : var3IsFavorite.setValue(1)" dmx-class:image-save="block_type=='portrait'" dmx-hide="block_type=='landscape'">
             <span dmx-hide="var3IsFavorite.value"> <i class="bi-suit-heart text-dark"></i></span>
             <span dmx-show="var3IsFavorite.value"> <i class="bi-heart-fill text-danger"></i></span>
-
           </div>
           <div class="image-tag">
             {{discount}}
@@ -111,7 +109,6 @@
           <div class="label">{{type}}</div>
           <div class="title">{{name}}</div>
           <div class="d-flex">
-
             <div class="final-price"> {{final_price}} </div>
             <div class="real-price">{{real_price}}</div>
           </div>
@@ -140,14 +137,12 @@
   <div class="mt-4" is="dmx-swiper" id="swiper2" dmx-bind:slides="jsonDS1.data.recommended_for_you" grab-cursor="true" navigation="true" slides-per-view="2.5" slides-per-view-lg="6" slides-per-view-xl="6">
     <div class="swiper-slide swiper">
       <dmx-value id="var1IsFavorite" dmx:bind:value="0"></dmx-value>
-
       <div class="section-part">
         <div class="image-part">
           <img dmx-bind:src="image" class="w-100 h-100">
           <div class="btn btn-icon image-save mt-1 px-1" dmx-on:click="var1IsFavorite.value == 1 ? var1IsFavorite.setValue(0) : var1IsFavorite.setValue(1)">
             <span dmx-hide="var1IsFavorite.value"> <i class="bi-suit-heart"></i></span>
             <span dmx-show="var1IsFavorite.value"> <i class="bi-heart-fill text-danger"></i></span>
-
           </div>
           <div class="image-tag d-none d-lg-block">
             {{discount}}
@@ -198,7 +193,6 @@
           <div class="btn btn-icon image-save mt-1 px-1" dmx-on:click="var2IsFavorite.value == 1 ? var2IsFavorite.setValue(0) : var2IsFavorite.setValue(1)">
             <span dmx-hide="var2IsFavorite.value"> <i class="bi-suit-heart"></i></span>
             <span dmx-show="var2IsFavorite.value"> <i class="bi-heart-fill text-danger"></i></span>
-
           </div>
           <div class="image-tag">
             {{discount}}
