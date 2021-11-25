@@ -2,7 +2,6 @@
 <dmx-array id="arrProducts" dmx-bind:items="jsonDS1.data.product.where(`name.lowercase()` ,formSearch.search_product.value.lowercase(), 'contains').top(varMore.value)"></dmx-array>
 <dmx-value id="varMore" dmx-bind:value="4"></dmx-value>
 <dmx-value id="varProgress" dmx-bind:value="varMore.value / jsonDS1.data.product.count() * 100"></dmx-value>
-<dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
 <meta name="ac:route" content="/product-listing">
 <div class="container px-0 label">
   <div class="offcanvas offcanvas-end w-75  text-dark" id="offcanvasfilter" is="dmx-bs5-offcanvas" tabindex="-1">
@@ -120,7 +119,7 @@
     <div class="mt-0 mt-lg-4 d-flex flex-wrap" id="repeat1" is="dmx-repeat" dmx-bind:repeat="arrProducts.items.count() > 0 ? arrProducts.items : jsonDS1.data.product.top(varMore.value)">
       <dmx-value id="varIsFavorite" dmx-bind:value="0"></dmx-value>
       <div class="col-lg-4">
-        <div class=" mb-4" dmx-class:women-section-part-p="vardisplay.value==1" dmx-class:women-section-part="vardisplay.value==0" dmx-on:click="browser1.goto('product-details/?product_id={{product_id}}',true,'Product Details')">
+        <div class=" mb-4" dmx-class:women-section-part-p="vardisplay.value==1" dmx-class:women-section-part="vardisplay.value==0">
           <div dmx-class:women-image-part-p="vardisplay.value==1" dmx-class:women-image-part="vardisplay.value==0">
             <img dmx-bind:src="image" class="w-100 h-100 w-shoes-image">
             <div class="btn btn-icon  mt-1 px-1" dmx-class:women-image-save-p="vardisplay.value==1" dmx-class:women-image-save="vardisplay.value==0" dmx-on:click="varIsFavorite.value == 1 ? varIsFavorite.setValue(0) : varIsFavorite.setValue(1)">
@@ -132,7 +131,7 @@
           </div>
           <div class="women-content-part ">
             <div class="label d-none d-lg-block">{{type}}</div>
-            <div class="women-title"><a dmx-on:click="ddProductInformation.select(product_id)" dmx-bind:href="product-details?product_id={{product_id}}">{{name}}</a></div>
+            <div class="women-title"><a dmx-on:click="ddProductInformation.select(product_id)" dmx-bind:href="product-details?product_id={{product_id}}" internal>{{name}}</a></div>
             <div class="d-flex " id="repeat3" is="dmx-repeat" dmx-bind:repeat="color.split(',')">
               <div class="rounded-circle w-shoes-color me-2" dmx-bind:style="background-color:{{$value}}"></div>
             </div>

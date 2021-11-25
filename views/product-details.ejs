@@ -3,10 +3,8 @@
 
 <dmx-query-manager id="qm"></dmx-query-manager>
 <meta name="ac:route" content="/product-details">
-<dmx-array id="arrReviews" dmx-bind:items="jsonDS1.data.user_review.where(`user_name.lowercase()` ,formSearch.search_review.value.lowercase(), 'contains')"></dmx-array>
-<dmx-array id="arrReviews_coll" dmx-bind:items="jsonDS1.data.user_review.where(`user_name.lowercase()` ,Revcollapse.ReviewSearch.search_review_coll.value.lowercase(), 'contains')"></dmx-array>
-
-<dmx-value id="varreview" dmx-bind:value="jsonDS1.data.user_review[0].review_star / 5 * 100"></dmx-value>
+<dmx-array id="arrReviews" dmx-bind:items="jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`user_name.lowercase()` ,formSearch.search_review.value.lowercase(), 'contains')"></dmx-array>
+<dmx-array id="arrReviews_coll" dmx-bind:items="jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`user_name.lowercase()` ,Revcollapse.ReviewSearch.search_review_coll.value.lowercase(), 'contains')"></dmx-array>
 <div class="container px-0 d-none d-lg-block label">
   {{jsonDS1.data.menu_categories.where(`category_id`, varCategory.value, '==').values(`title`)}} <i class="fas fa-angle-right ms-2 me-2"></i> {{jsonDS1.data.menu_items.where(`item_id`, varItem.value, '==').values(`title`)}}
   <h4 class="text-dark">
@@ -40,17 +38,17 @@
       <p>Celebrate the beauty of our planet with this adidas Stan Smith shoe. Created in collaboration with HER Studio London, this iconic sneaker features a heavenly floral print. Crafted from recycled materials, it has a sleek, sleek synthetic upper that looks like leather. A classic shoe that reduces waste. And to go even further: this product is designed with Primegreen, a series of high performance recycled materials. 50% of the upper is made from recycled materials. No virgin polyester.</p>
     </div>
     <div class="d-flex font-large14 justify-content-between mt-4">
-      <ul class="list-unstyled ">
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>Standard Fit</li>
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>Lace-up closure</li>
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>Synthetic upper</li>
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>Rubber outsole</li>
+
+      <ul class="list-unstyled" id="repeat1" is="dmx-repeat" dmx-bind:repeat="ddProductInformation.data.product_materials.split(',')">
+        <li class="mt-3"><i class="far fa-check-circle me-2"></i>{{$value}}</li>
+
       </ul>
+      <!--
       <ul class="list-unstyled ">
         <li class="mt-3"><i class="far fa-check-circle me-2"></i>Primegreen</li>
         <li class="mt-3"><i class="far fa-check-circle me-2"></i>Porduct color: Cloud White / Black / Red</li>
         <li class="mt-3"><i class="far fa-check-circle me-2"></i>Product code: GZ0976</li>
-      </ul>
+      </ul>-->
     </div>
     <div class="d-flex mt-5 ">
       <div class="col-lg-5">
@@ -58,30 +56,30 @@
         <div class="d-flex align-items-center mt-3">
           <span class="font-medium12 text-primary me-3 fw-bold"> 5 Star</span>
           <div class="progress  m-0 me-3 review_progress ">
-            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,5,'==').count()}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+          <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,5,'==').count()}}%</span>
         </div>
         <div class="d-flex align-items-center mt-3">
           <span class="font-medium12 text-primary me-3 fw-bold"> 4 Star</span>
           <div class="progress m-0 review_progress ">
-            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,4,'==').count()}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+          <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,4,'==').count()}}%</span>
         </div>
         <div class="d-flex align-items-center mt-3">
           <span class="font-medium12 text-primary me-3 fw-bold"> 3 Star</span>
           <div class="progress m-0 review_progress ">
-            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,3,'==').count()}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+          <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,3,'==').count()}}%</span>
         </div>
         <div class="d-flex align-items-center mt-3">
           <span class="font-medium12 text-primary me-3 fw-bold"> 2 Star</span>
           <div class="progress m-0 review_progress ">
-            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+            <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,2,'==').count()}}%"></div>
           </div>
-          <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+          <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,2,'==').count()}}%</span>
         </div>
         <a href="" class="text-decoration-none font-medium12 fw-bold"> How are ratings Calculated?</a>
         <div class="mt-5 ">
@@ -126,29 +124,24 @@
     </div>
   </div>
 
-  <dmx-slideshow id="slideshow1" show-paging="true" no-autostart="true" class="slide d-lg-none">
+  <dmx-slideshow id="slideshow1" show-paging="true" no-autostart="true" class="slide d-lg-none" dmx-bind:slides="ddProductInformation.data.slide.split(',')" slide-url="{{$value}}">
 
-    <dmx-slide id="slide1" url="assets/images/shoes1.svg" class="w-shoes-image">
-
-    </dmx-slide>
-
-    <dmx-slide id="slide2" url="assets/images/shoes2.svg"></dmx-slide>
 
   </dmx-slideshow>
 
   <div class="product_details  ms-4 col-lg-4 col-sm-12 mt-3 ">
     <div class=" d-flex flex-lg-column flex-column-reverse">
       <div class="col-sm-12">
-        <h5 class="text-black-50 font-medium12">Nike Originals</h5>
-        <h4 class="fw-bold">Air Jordan 1 Retro High</h4>
+        <h5 class="text-black-50 font-medium12">{{ddProductInformation.data.type}}</h5>
+        <h4 class="fw-bold">{{ddProductInformation.data.name}}</h4>
         <div class="d-flex">
           <div id="rating-repeat" is="dmx-repeat" dmx-bind:repeat="5">
-            <span dmx-show="rating > $index"><i class="bi-star-fill"></i></span>
-            <span dmx-hide="rating > $index"><i class="bi-star"></i></span>
+            <span dmx-show="ddProductInformation.data.rating > $index"><i class="bi-star-fill"></i></span>
+            <span dmx-hide="ddProductInformation.data.rating > $index"><i class="bi-star"></i></span>
           </div>
-          <div class="ms-2">{{rating_count}}</div>
+          <div class="ms-2">{{ddProductInformation.data.rating_count}}</div>
         </div>
-        <p class="font-large14 d-none d-block mt-3">The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.</p>
+        <p class="font-large14 d-none d-lg-block mt-3">{{ddProductInformation.data.description}}</p>
       </div>
 
       <div class="col-sm-12 mb-3 mt-2">
@@ -161,20 +154,20 @@
       </div>
     </div>
     <div class="  d-flex flex-lg-column justify-content-between align-items-baseline">
-      <div class="text-dark product_offer mt-4  font-medium12 ">-22% OFF</div>
+      <div class="text-dark product_offer mt-4  font-medium12 ">{{ddProductInformation.data.discount}}</div>
       <div class="d-flex mb-4 me-2">
-        <div class="w-shoes-real-price ms-0">121,00 €</div>
-        <div class="w-shoes-final-price ms-2"> 99,99 € </div>
+        <div class="w-shoes-real-price ms-0">{{ddProductInformation.data.real_price}}</div>
+        <div class="w-shoes-final-price ms-2">{{ddProductInformation.data.final_price}} </div>
       </div>
     </div>
-    <div class="d-flex flex-wrap  " id="buttonrepeat" is="dmx-repeat" dmx-bind:repeat="16">
-      <button class="btn btn-outline-dark me-2 font-large14 px-3 mt-2 product_size rounded-0">32</button>
+    <div class="d-flex flex-wrap  " id="buttonrepeat" is="dmx-repeat" dmx-bind:repeat="ddProductInformation.data.size.split(',')">
+      <button class="btn btn-outline-dark me-2 font-large14 px-3 mt-2 product_size rounded-0">{{$value}}</button>
     </div>
     <div class="mt-4 mb-4 d-none d-lg-block">
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Delivery to 75018 available</p>
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Click&Collect at Paris Nord available</p>
     </div>
-    <div class="d-flex justify-content-center mt-4 me-2 btn bg-dark text-white rounded-0 align-items-center" dmx-on:click="modalCart.toggle()">
+    <div class="d-flex justify-content-center mt-4 me-2 btn btn-dark text-white rounded-0 align-items-center" dmx-on:click="arrCart.addUniq(ddProductInformation.data.product_id);notif.success('Product added to cart succesfully!')" dmx-class:disabled="arrCart.items.contains(ddProductInformation.data.product_id)" id="cart">
       <i class="fas fa-shopping-cart me-2 "></i>Add to Cart
     </div>
     <div class="d-flex  d-lg-none justify-content-center me-2 mt-4 btn  btn-outline-dark  rounded-0 align-items-center">
@@ -183,7 +176,7 @@
     <p class="font-medium12 fw-bold mt-2 d-none d-lg-block "> Hurry! This item is <span class="text-primary">selling fast</span></p>
     <div class="font-large14 d-none d-lg-block mt-5">
       <p><i class="far fa-heart me-2"></i> Add to Favorites</p>
-      <P class="text-black-50"> <i class="fas fa-undo me-2"></i>90 day return policy</P>
+      <P class="text-black-50"> <i class="fas fa-undo me-2"></i>{{ddProductInformation.data.return}}</P>
       <p class="text-black-50"> <i class="fas fa-shopping-cart me-2"></i> Free shipping for loyalty club members</p>
     </div>
     <div class="d-lg-none mt-5 mb-5">
@@ -191,24 +184,22 @@
         <h5>Description</h5> <i class="fas fa-angle-down me-2"></i>
       </span>
       <div class="collapse" id="Descollapse" is="dmx-bs5-collapse">
-        <p class="font-large12 d-block mt-3">The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.</p>
+        <p class="font-large12 d-block mt-3">{{ddProductInformation.data.description}}</p>
       </div>
       <span class="d-flex justify-content-between mt-3 btn" dmx-on:click="Matcollapse.toggle()">
         <h5>Materials</h5> <i class="fas fa-angle-down me-2"></i>
       </span>
       <div class="collapse" id="Matcollapse" is="dmx-bs5-collapse">
-        <ul class="list-unstyled ">
-          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Standard Fit</li>
-          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Lace-up closure</li>
-          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Synthetic upper</li>
-          <li class="mt-3"><i class="far fa-check-circle me-2"></i>Rubber outsole</li>
+        <ul class="list-unstyled" id="repeat_mat" is="dmx-repeat" dmx-bind:repeat="ddProductInformation.data.product_materials.split(',')">
+          <li class="mt-3"><i class="far fa-check-circle me-2"></i>{{$value}}</li>
+
         </ul>
       </div>
       <span class="d-flex justify-content-between mt-3 btn" dmx-on:click="Shicollapse.toggle()">
         <h5>Shipping and Returns</h5> <i class="fas fa-angle-down me-2"></i>
       </span>
       <div class="collapse" id="Shicollapse" is="dmx-bs5-collapse">
-        <P class="font-medium12"> <i class="fas fa-undo me-2"></i>90 day return policy</P>
+        <P class="font-medium12"> <i class="fas fa-undo me-2"></i>{{ddProductInformation.data.return}}</P>
         <p class="font-medium12"> <i class="fas fa-shopping-cart me-2"></i> Free shipping for loyalty club members</p>
       </div>
       <span class="d-flex justify-content-between mt-3 btn" dmx-on:click="Revcollapse.toggle()">
@@ -221,30 +212,30 @@
             <div class="d-flex align-items-center mt-3">
               <span class="font-medium12 text-primary me-3 fw-bold"> 5 Star</span>
               <div class="progress  m-0 review_progress ">
-                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,5,'==').count()}}%"></div>
               </div>
-              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+              <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,5,'==').count()}}%</span>
             </div>
             <div class="d-flex align-items-center mt-3">
               <span class="font-medium12 text-primary me-3 fw-bold"> 4 Star</span>
               <div class="progress m-0 review_progress ">
-                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,4,'==').count()}}%"></div>
               </div>
-              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+              <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,4,'==').count()}}%</span>
             </div>
             <div class="d-flex align-items-center mt-3">
               <span class="font-medium12 text-primary me-3 fw-bold"> 3 Star</span>
               <div class="progress m-0 review_progress ">
-                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,3,'==').count()}}%"></div>
               </div>
-              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+              <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,3,'==').count()}}%</span>
             </div>
             <div class="d-flex align-items-center mt-3">
               <span class="font-medium12 text-primary me-3 fw-bold"> 2 Star</span>
               <div class="progress m-0 review_progress ">
-                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{varreview.value}}%"></div>
+                <div class="progress-bar bg-dark" role="progressbar" dmx-style:width="{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,2,'==').count()}}%"></div>
               </div>
-              <span class="font-medium12 ms-2">{{varreview.value}}%</span>
+              <span class="font-medium12 ms-2">{{jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`review_star`,2,'==').count()}}%</span>
             </div>
             <a href="" class="text-decoration-none font-medium12 fw-bold"> How are ratings Calculated?</a>
             <div class="mt-5 ">

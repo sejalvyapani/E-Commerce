@@ -35,9 +35,14 @@
   <link rel="stylesheet" href="dmxAppConnect/dmxSlideshow/themes/light.css" />
   <script src="dmxAppConnect/dmxStateManagement/dmxStateManagement.js" defer=""></script>
   <script src="dmxAppConnect/dmxBrowser/dmxBrowser.js" defer=""></script>
+  <link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
+  <script src="dmxAppConnect/dmxNotifications/dmxNotifications.js" defer=""></script>
 </head>
 
 <body id="main" is="dmx-app">
+  <dmx-notifications id="notif"></dmx-notifications>
+  <dmx-array id="arrCart"></dmx-array>
+
   <dmx-data-detail id="ddProductInformation" dmx-bind:data="jsonDS1.data.product" key="product_id"></dmx-data-detail>
   <div is="dmx-browser" id="browser1"></div>
   <dmx-value id="varCategory" dmx-bind:value="jsonDS1.data.menu_categories[0].category_id"></dmx-value>
@@ -81,7 +86,7 @@
     <div class="col-lg-4 col-md-2 d-flex justify-content-lg-end align-items-center ">
       <img src="assets/images/Heart.svg" class="account-icon d-none d-lg-inline">
       <span class="btn p-0"> <img src="assets/images/Account.svg" class="me-2 ms-2 account-icon"><span class="d-lg-none font-medium12  d-flex align-items-center me-2">Account</span></span>
-      <span class="btn p-0" dmx-on:click="modalCart.toggle()"> <img src="assets/images/Cart.svg" class="me-2 account-icon"><span class="d-lg-none font-medium12  d-flex align-items-center ">Cart</span></span>
+      <span class="btn p-0" id="cart" dmx-on:click="modalCart.toggle()"> <img src="assets/images/Cart.svg" class="me-2 account-icon"><span class="d-lg-none font-medium12  d-flex align-items-center ">Cart</span></span>
     </div>
   </div>
   <div class="container mt-5 p-0">
@@ -317,28 +322,35 @@
       </div>
     </div>
   </div>
-  <div class="modal" id="modalCart" is="dmx-bs5-modal" tabindex="-1">
-    <div class="modal-dialog modal-xl" role="document">
+  <div class="modal fade" id="modalCart" is="dmx-bs5-modal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered" role="document">
       <div class="modal-content rounded-0">
-        <div class="modal-header">
+        <div class="modal-header" dmx-hide=" arrCart.items==0">
           <h5 class="modal-title fw-bold">Added to your cart <i class="fas fa-check text-success"></i></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body d-lg-flex">
-          <div class="cart_item_details d-flex">
-            <div class="cart_image me-2">
-              <img src="assets/images/shoes2.svg" class="w-shoes-image w-100 h-100">
-            </div>
-            <div>
-              <p class="label mb-1">XULA</p>
-              <h5 class="font-large14  mb-1 fw-bold w-75">ADIDAS Samba Leather White/Black/Gum</h5>
-              <span class="final-price">74,95 €</span>
-              <div class="bottom-text">
-                <span class="label font-large14">Quantity: 1</span>
-                <h5 class="font-large14 fw-bold">Price: 74,95 €</h5>
+        <h5>Item Not Found</h5>
+        <div class="modal-body" dmx-hide=" arrCart.items==0">
+          <div id="repeat5" is="dmx-repeat" dmx-bind:repeat="arrCart.items" class="d-lg-flex">
+            <div class="cart_item_details d-flex">
+
+
+              <div class="cart_image me-2">
+                <img dmx-bind:src="{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`image`)}}
+" class="w-shoes-image w-100 h-100">
+              </div>
+              <div>
+                <p class="label mb-1">{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`type`)}}</p>
+                <h5 class="font-large14  mb-1 fw-bold ">{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`name`)}}</h5>
+                <span class="final-price">{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`final_price`)}}</span>
+                <div class="bottom-text">
+                  <span class="label font-large14">Quantity: 1</span>
+                  <h5 class="font-large14 fw-bold">{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`final_price`)}}</h5>
+                </div>
               </div>
             </div>
           </div>
+
           <div class="item_checkout">
             <div class="d-flex justify-content-center font-large14 w-50 mt-4 me-2 btn bg-dark text-white rounded-0 align-items-center">
               <i class="fas fa-shopping-cart me-2 "></i>CHECKOUT NOW
@@ -355,7 +367,7 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer border-0 mt-3">
+        <div class="modal-footer border-0 mt-3" dmx-hide=" arrCart.items==0">
           <div class="container px-0 mb-5 ">
             <div class="d-flex justify-content-between ">
               <h3 class="d-flex justify-content-start  fw-bold   mb-0 d-lg-block ms-4">
