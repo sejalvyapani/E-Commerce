@@ -1,6 +1,11 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" id="productdetails" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{},dmxSwiper:{},dmxBootstrap5Navigation:{}}" is="dmx-app" appConnect="local" -->
-<dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" id="productdetails" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{},dmxSwiper:{},dmxBootstrap5Navigation:{},dmxSlideshow:{},dmxStateManagement:{},dmxDataTraversal:{}}" is="dmx-app" appConnect="local" bootstrap5="local" -->
+
+
+<dmx-query-manager id="qm"></dmx-query-manager>
 <meta name="ac:route" content="/product-details">
+<dmx-array id="arrReviews" dmx-bind:items="jsonDS1.data.user_review.where(`user_name.lowercase()` ,formSearch.search_review.value.lowercase(), 'contains')"></dmx-array>
+<dmx-array id="arrReviews_coll" dmx-bind:items="jsonDS1.data.user_review.where(`user_name.lowercase()` ,Revcollapse.ReviewSearch.search_review_coll.value.lowercase(), 'contains')"></dmx-array>
+
 <dmx-value id="varreview" dmx-bind:value="jsonDS1.data.user_review[0].review_star / 5 * 100"></dmx-value>
 <div class="container px-0 d-none d-lg-block label">
   {{jsonDS1.data.menu_categories.where(`category_id`, varCategory.value, '==').values(`title`)}} <i class="fas fa-angle-right ms-2 me-2"></i> {{jsonDS1.data.menu_items.where(`item_id`, varItem.value, '==').values(`title`)}}
@@ -8,10 +13,11 @@
     Sneakers <span class="label">(542)</span>
   </h4>
 </div>
+
 <div class="container d-lg-flex mt-4 px-0">
   <div class="product_image col-lg-8  d-none d-lg-block col-sm-12">
     <div class="top_image_group d-none d-lg-block">
-      <img src="assets/images/w-sm-head.jpg" class="w-100 h-100 w-shoes-image">
+      <img dmx-bind:src="ddProductInformation.data.image" class="w-100 h-100 w-shoes-image">
     </div>
     <div class="bottom_image_group d-none d-lg-block">
       <img src="assets/images/sm-pic4.svg" class="w-100 h-100 w-shoes-image">
@@ -88,7 +94,7 @@
         <div class="d-flex justify-content-between">
           <form class="d-flex form-border w-100 p-1" method="post" id="formSearch">
             <img src="assets/images/Search.svg" class="ms-1 d-none d-lg-inline">
-            <input class=" w-auto form-control border-0 rounded-0 font-large14 me-2" type="search" placeholder="Search in reviews" aria-label="Search" id="search_reivew">
+            <input class=" w-auto form-control border-0 rounded-0 font-large14 me-2" type="search" placeholder="Search in reviews" aria-label="Search" id="search_review">
           </form>
           <select class="form-select form-border ms-3 rounded-0 w-auto font-medium12 fw-bold">
             <option selected class="font-medium12">Sort by: Top Review</option>
@@ -97,7 +103,11 @@
             <option value="3">Most Rated</option>
           </select>
         </div>
-        <div class="mt-4" id="repeat2" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.user_review">
+
+        <div class="d-flex mt-5" dmx-show="arrReviews.items.count()==0">
+          <h5 class="text-primary">Sorry User {{formSearch.search_review.value }} Not found !!!</h5>
+        </div>
+        <div class="mt-4" id="repeat2" is="dmx-repeat" dmx-bind:repeat="arrReviews.items.count() > 0 ? arrReviews.items : jsonDS1.data.user_review" dmx-hide="arrReviews.items.count()==0">
           <h5 class="font-medium12 mt-4"> <img dmx-bind:src="user_image" class="user_image"> {{user_name}}</h5>
           <div class="d-flex align-items-baseline">
             <div id="repeat_review" is="dmx-repeat" dmx-bind:repeat="5">
@@ -115,22 +125,38 @@
       </div>
     </div>
   </div>
+
+  <dmx-slideshow id="slideshow1" show-paging="true" no-autostart="true" class="slide d-lg-none">
+
+    <dmx-slide id="slide1" url="assets/images/shoes1.svg" class="w-shoes-image">
+
+    </dmx-slide>
+
+    <dmx-slide id="slide2" url="assets/images/shoes2.svg"></dmx-slide>
+
+  </dmx-slideshow>
+
   <div class="product_details  ms-4 col-lg-4 col-sm-12 mt-3 ">
-    <h5 class="text-black-50 font-medium12">Nike Originals</h5>
-    <h4 class="fw-bold">Air Jordan 1 Retro High</h4>
-    <div class="d-flex">
-      <div id="rating-repeat" is="dmx-repeat" dmx-bind:repeat="5">
-        <span dmx-show="rating > $index"><i class="bi-star-fill"></i></span>
-        <span dmx-hide="rating > $index"><i class="bi-star"></i></span>
+    <div class=" d-flex flex-lg-column flex-column-reverse">
+      <div class="col-sm-12">
+        <h5 class="text-black-50 font-medium12">Nike Originals</h5>
+        <h4 class="fw-bold">Air Jordan 1 Retro High</h4>
+        <div class="d-flex">
+          <div id="rating-repeat" is="dmx-repeat" dmx-bind:repeat="5">
+            <span dmx-show="rating > $index"><i class="bi-star-fill"></i></span>
+            <span dmx-hide="rating > $index"><i class="bi-star"></i></span>
+          </div>
+          <div class="ms-2">{{rating_count}}</div>
+        </div>
+        <p class="font-large14 d-none d-block mt-3">The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.</p>
       </div>
-      <div class="ms-2">{{rating_count}}</div>
-    </div>
-    <p class="font-large14 d-none d-block mt-3">The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.</p>
-    <div>
-      <h5 class="font-large14 text-black-50">Available in 5 styles</h5>
-      <div is="dmx-swiper" id="swiper1" grab-cursor="true" slides-per-view="4" dmx-bind:slides="10" navigation="true">
-        <div class="swiper-slide color_swiper">
-          <img src="assets/images/sm-pic2.svg" class="product_color ">
+
+      <div class="col-sm-12 mb-3 mt-2">
+        <h5 class="font-large14 text-black-50">Available in 5 styles</h5>
+        <div is="dmx-swiper" id="swiper1" grab-cursor="true" slides-per-view="4" dmx-bind:slides="10" navigation="true">
+          <div class="swiper-slide color_swiper">
+            <img src="assets/images/sm-pic2.svg" class="product_color ">
+          </div>
         </div>
       </div>
     </div>
@@ -148,7 +174,7 @@
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Delivery to 75018 available</p>
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Click&Collect at Paris Nord available</p>
     </div>
-    <div class="d-flex justify-content-center mt-4 me-2 btn bg-dark text-white rounded-0 align-items-center">
+    <div class="d-flex justify-content-center mt-4 me-2 btn bg-dark text-white rounded-0 align-items-center" dmx-on:click="modalCart.toggle()">
       <i class="fas fa-shopping-cart me-2 "></i>Add to Cart
     </div>
     <div class="d-flex  d-lg-none justify-content-center me-2 mt-4 btn  btn-outline-dark  rounded-0 align-items-center">
@@ -228,10 +254,11 @@
             </div>
           </div>
           <div class="col-sm-12">
+
             <div class="d-flex mt-4 ">
               <form class="d-flex form-border w-75  p-1" method="post" id="ReviewSearch">
                 <img src="assets/images/Search.svg">
-                <input class="  form-control border-0 rounded-0 font-medium12 " type="search" placeholder=" Reviews" aria-label="Search" id="search_reivew_coll">
+                <input class="  form-control border-0 rounded-0 font-medium12 " type="search" placeholder=" Reviews" aria-label="Search" id="search_review_coll">
               </form>
               <select class="form-select form-border w-75 ms-3 rounded-0 me-5  font-medium12 fw-bold">
                 <option selected class="font-medium12">Sort by: Top Review</option>
@@ -240,7 +267,10 @@
                 <option value="3">Most Rated</option>
               </select>
             </div>
-            <div class="mt-4" id="userrepeat" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.user_review">
+            <div class="d-flex mt-5" dmx-show="arrReviews_coll.items.count()==0">
+              <h5 class="text-primary">Sorry User {{Revcollapse.ReviewSearch.search_review_coll.value}} Not found !!!</h5>
+            </div>
+            <div class="mt-4" id="userrepeat" is="dmx-repeat" dmx-bind:repeat="arrReviews_coll.items.count() > 0 ? arrReviews_coll.items : jsonDS1.data.user_review" dmx-hide="arrReviews_coll.items.count()==0">
               <h5 class="font-medium12 mt-4"> <img dmx-bind:src="user_image" class="user_image"> {{user_name}}</h5>
               <div class="d-flex align-items-baseline">
                 <div id="repeat_review_coll" is="dmx-repeat" dmx-bind:repeat="5">

@@ -2,5 +2,12 @@
   "product-listing.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "product-details.ejs": {
+    "layoutPage": "main"
+  },
+  "product-detail.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }

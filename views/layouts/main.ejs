@@ -1,5 +1,5 @@
 <!doctype html>
-<html is="dmx-app">
+<html>
 
 <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
@@ -30,9 +30,16 @@
   <script src="dmxAppConnect/dmxBootstrap5Modal/dmxBootstrap5Modal.js" defer=""></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<div class=&quot;col-lg-8&quot;>          <dmx-google-maps id=&quot;maps1&quot; address=&quot;jodhpur&quot;></dmx-google-maps>        </div>=&quot;d-flex flex-nowrap&quot;>"></script>
   <script src="dmxAppConnect/dmxGoogleMaps/dmxGoogleMaps.js" defer=""></script>
+  <link rel="stylesheet" href="dmxAppConnect/dmxSlideshow/dmxSlideshow.css" />
+  <script src="dmxAppConnect/dmxSlideshow/dmxSlideshow.js" defer=""></script>
+  <link rel="stylesheet" href="dmxAppConnect/dmxSlideshow/themes/light.css" />
+  <script src="dmxAppConnect/dmxStateManagement/dmxStateManagement.js" defer=""></script>
+  <script src="dmxAppConnect/dmxBrowser/dmxBrowser.js" defer=""></script>
 </head>
 
-<body id="main">
+<body id="main" is="dmx-app">
+  <dmx-data-detail id="ddProductInformation" dmx-bind:data="jsonDS1.data.product" key="product_id"></dmx-data-detail>
+  <div is="dmx-browser" id="browser1"></div>
   <dmx-value id="varCategory" dmx-bind:value="jsonDS1.data.menu_categories[0].category_id"></dmx-value>
   <dmx-value id="varItem" dmx-bind:value="jsonDS1.data.menu_items[0].item_id"></dmx-value>
   <dmx-json-datasource id="jsonDS1" is="dmx-serverconnect" url="assets/json/data.json"></dmx-json-datasource>
@@ -109,7 +116,7 @@
       </div>
     </nav>
   </div>
-  <div is=" dmx-view" id="content">
+  <div is="dmx-view" id="content">
     <%- await include(content, locals); %>
   </div>
   <div class="bg-light">

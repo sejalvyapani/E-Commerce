@@ -100,6 +100,36 @@ font-size: 14px;
  .swiper{
    width:120px !important;
  }
+ .slide{
+   padding-top: 92% !important;
+ }
+ .dmx-slideshow-textbox-container{
+  width:375px !important;
+  height:346.38px !important;
+}
+.dmx-slideshow-effects-container{
+  width:375px !important;
+  height:346.38px !important;
+}
+.dmx-slideshow-slides-container{
+  width:375px !important;
+  height:346.38px !important;
+}
+.dmx-slideshow-paging-container{
+  position: absolute !important;
+  top:87% !important;
+  left:40% !important;
+}
+.dmx-slideshow-paging-container li.current
+{
+  background:black !important;
+
+}
+.dmx-slideshow-paging-container li{
+  border:1px solid !important;
+  background: none !important;
+  
+}
   .product_color{
     width:86px;
     height:86px;
@@ -321,6 +351,24 @@ background-image:url(/assets/images/sm-shoes.jpg);
    .swiper{
    width:180px !important;
  }
+  .slide{
+   padding-top: 62% !important;
+ }
+.dmx-slideshow-paging-container{
+  position: absolute !important;
+  top:87% !important;
+  left:40% !important;
+}
+.dmx-slideshow-paging-container li.current
+{
+  background:black !important;
+
+}
+.dmx-slideshow-paging-container li{
+  border:1px solid !important;
+  background: none !important;
+  
+}
   .product_color{
     width:106px;
     height:86px;
@@ -553,6 +601,7 @@ background-image:url(/assets/images/sm-shoes.jpg);
   letter-spacing: 2px;
   font-weight:600;
 }
+
 .bottom-text{
   margin-top:92px;
   
