@@ -17,8 +17,9 @@
       "discount": "-54% OFF",
       "type": "Nike",
       "name": "Name and Characteristics",
-      "final_price": "52,95€",
-      "real_price": "131,00€",
+      "final_price": "52,95",
+      "currency": "€",
+      "real_price": "131,00",
       "rating": 5,
       "rating_count": 64
     },
@@ -388,21 +389,25 @@
   "category": [
     {
       "id": "01",
+      "item_id": 4,
       "image": "assets/images/sm-pic1.svg",
       "title": "New Relases"
     },
     {
       "id": "02",
+      "item_id": 4,
       "image": "assets/images/sm-pic2.svg",
       "title": "Men"
     },
     {
       "id": "03",
+      "item_id": 4,
       "image": "assets/images/sm-pic3.svg",
       "title": "Women"
     },
     {
       "id": "04",
+      "item_id": 4,
       "image": "assets/images/sm-pic4.svg",
       "title": "Kids"
     }
@@ -486,26 +491,31 @@
   "shoes_categories": [
     {
       "shoes_id": 1,
+      "item_id": 4,
       "image": "assets/images/light-shoes.svg",
       "title": "Low Sneakers Women (43)"
     },
     {
       "shoes_id": 2,
+      "item_id": 4,
       "image": "assets/images/light-shoes.svg",
       "title": "Low Sneakers Mens (43)"
     },
     {
       "shoes_id": 3,
+      "item_id": 4,
       "image": "assets/images/light-shoes.svg",
       "title": "Casual footwear (43)"
     },
     {
       "shoes_id": 4,
+      "item_id": 4,
       "image": "assets/images/light-shoes.svg",
       "title": "Golf shoes (43)"
     },
     {
       "shoes_id": 5,
+      "item_id": 4,
       "image": "assets/images/light-shoes.svg",
       "title": "Sports shoes (43)"
     }
@@ -520,7 +530,8 @@
       "type": "Puma",
       "name": "Puma Shoes",
       "color": "#FFD9F0,#DFF2F8,#3F52E8,#7884DE,#4F5162",
-      "final_price": "74,95€",
+      "final_price": 74.95,
+      "currency": "€",
       "real_price": "121,00€",
       "rating": 4,
       "rating_count": 54,
@@ -540,7 +551,8 @@
       "type": "Nike",
       "name": "Nike Shoes",
       "color": "#800000,#a32638,#8b008b,#000000,#704241",
-      "final_price": "52,95€",
+      "final_price": 52.95,
+      "currency": "€",
       "real_price": "131,00€",
       "rating": 5,
       "rating_count": 64,
@@ -560,7 +572,8 @@
       "type": "Adidas",
       "name": "Adidas Shoes",
       "color": "#555555,#DFF2F8,#004040,#000080,#23297a",
-      "final_price": "85,95€",
+      "final_price": 85.95,
+      "currency": "€",
       "real_price": "129,00€",
       "rating": 4,
       "rating_count": 45,
@@ -580,7 +593,8 @@
       "type": "Reebok",
       "name": "Reebok Shoes",
       "color": "#bcb88a,#008b8b,#051118,#7884DE,#fbceb1",
-      "final_price": "94,95€",
+      "final_price": 94.95,
+      "currency": "€",
       "real_price": "185,00€",
       "rating": 4,
       "rating_count": 65,
@@ -598,9 +612,8 @@
       "slide": "assets/images/shoes5.svg,assets/images/shoes5.svg,assets/images/shoes5.svg",
       "discount": "-52% OFF",
       "type": "Vans",
-      "name": "Vans Shoes",
-      "color": "#f08080,#DFF2F8,#ff0000,#f80080,#fa8072",
-      "final_price": "54,95€",
+      "final_price": 54.95,
+      "currency": "€",
       "real_price": "121,00€",
       "rating": 3,
       "rating_count": 57,
@@ -620,7 +633,8 @@
       "type": "Puma",
       "name": "Puma Shoes",
       "color": "#e4717a,#cc6666,#3F52E8,#7884DE,#4F5162",
-      "final_price": "64,95€",
+      "final_price": 64.95,
+      "currency": "€",
       "real_price": "121,00€",
       "rating": 4,
       "rating_count": 54,
@@ -640,7 +654,8 @@
       "type": "Skechers",
       "name": "Sketches Shoes",
       "color": "#FFD9F0,#bc8f8f,#f0ead6,#7884DE,#4F5162",
-      "final_price": "94,95€",
+      "final_price": 94.95,
+      "currency": "€",
       "real_price": "100,00€",
       "rating": 4,
       "rating_count": 35,
@@ -660,7 +675,8 @@
       "type": "Jordan",
       "name": "Jordan Shoes",
       "color": "#556b2f,#00008b,#add8e6,#7884DE,#b0c4de",
-      "final_price": "78,95€",
+      "final_price": 78.95,
+      "currency": "€",
       "real_price": "121,00€",
       "rating": 5,
       "rating_count": 67,
@@ -680,7 +696,8 @@
       "type": "Vans",
       "name": "Vans Shoes",
       "color": "#4b0082,#800080,#3F52E8,#9932cc,#4F5162",
-      "final_price": "64,95€",
+      "final_price": 64.95,
+      "currency": "€",
       "real_price": "110,00€",
       "rating": 3,
       "rating_count": 65,

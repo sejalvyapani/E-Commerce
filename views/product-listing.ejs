@@ -1,5 +1,6 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="productlisting" appConnect="local" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{},dmxBrowser:{},dmxDataTraversal:{}}" -->
-<dmx-array id="arrProducts" dmx-bind:items="jsonDS1.data.product.where(`name.lowercase()` ,formSearch.search_product.value.lowercase(), 'contains').top(varMore.value)"></dmx-array>
+<dmx-array id="arrProducts" dmx-bind:items="jsonDS1.data.product.where(`item_id`,varItem.value,'==').where(`name.lowercase()` ,formSearch.search_product.value.lowercase(), 'contains').top(varMore.value)"></dmx-array>
+<dmx-array id="arrBrand" dmx-bind:items="jsonDS1.data.product.where(`item_id`,varItem.value,'==').where(`type` ,content.selectBrand.value, 'contains').top(varMore.value)"></dmx-array>
 <dmx-value id="varMore" dmx-bind:value="4"></dmx-value>
 <dmx-value id="varProgress" dmx-bind:value="varMore.value / jsonDS1.data.product.count() * 100"></dmx-value>
 <meta name="ac:route" content="/product-listing">
@@ -62,7 +63,7 @@
 </div>
 <div class="font-medium12 d-lg-none ms-3 me-3 w-shoes-p "> <span class="fw-bold">Sneakers.</span>Ut mauris justo, semper in risus at, sodales porta ligula. Etiam vel eleifend libero. Sed augue elit, vehicula at nisl in, pretium malesuada ante. Vivamus lectus dui, ullamcorper a libero eu, sce lerisque iaculis velit.</div>
 <div class="container  px-0  mt-5 d-lg-none  ">
-  <div class="mt-3 d-flex justify-content-center" id="repeatcategory" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.category">
+  <div class="mt-3 d-flex justify-content-center" id="repeatcategory" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.category.where(`item_id`,varItem.value,'==')">
     <div class="ms-3">
       <img dmx-bind:src="image" class="category-image">
       <div class="title  text-center ">{{title}}</div>
@@ -74,33 +75,34 @@
 <div class="container px-0  mt-0 mt-lg-5 " dmx-class:d-flex="vardisplay.value==0">
   <div class=" d-none d-lg-block" dmx-class:col-lg-12="vardisplay.value==1" dmx-class:col-lg-3="vardisplay.value==0">
     <h5 class="label font-large14"> Categories</h5>
-    <div dmx-class:d-flex="vardisplay.value==1" dmx-class:justify-content-between="vardisplay.value==1" id="repeatshoescategories" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.shoes_categories">
+    <div dmx-class:d-flex="vardisplay.value==1" dmx-class:justify-content-between="vardisplay.value==1" id="repeatshoescategories" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.shoes_categories.where(`item_id`,varItem.value,'==')">
       <div class="d-flex align-items-center">
         <img dmx-bind:src="image" class="mt-4">
-        <div class="font-large14 mt-4 ms-3 text-center">{{title}}</div>
+        <div class="font-large14 mt-4 ms-3 text-center">{{title}}
+        </div>
       </div>
     </div>
   </div>
   <div dmx-class:mt-5="vardisplay.value==1" dmx-class:col-lg-12="vardisplay.value==1" dmx-class:col-lg-9="vardisplay.value==0">
     <div class="d-flex justify-content-between d-none d-lg-flex ">
       <div class="d-flex align-items-center w-50  ">
-        <select class="form-select  me-3">
-          <option selected>Size</option>
-          <option value="1">L</option>
-          <option value="2">XL</option>
-          <option value="3">XXL</option>
+        <select class="form-select  me-3" id="selectSize">
+          <option selected id="option">Size</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
         </select>
-        <select class="form-select  me-3 ">
+        <select class="form-select  me-3 " id="selectBrand">
           <option selected>Brand</option>
-          <option value="1">Nike</option>
-          <option value="2">Adidas</option>
-          <option value="3">Puma</option>
+          <option value="Nike">Nike</option>
+          <option value="Adidas">Adidas</option>
+          <option value="Puma">Puma</option>
         </select>
         <select class="form-select  me-3">
           <option selected>Colour</option>
-          <option value="1">Black</option>
-          <option value="2">Brown</option>
-          <option value="3">White</option>
+          <option value="Black">Black</option>
+          <option value="Brown">Brown</option>
+          <option value="White">White</option>
         </select>
         <a href="" class="text-dark text-nowrap  align-items-center d-flex  text-decoration-none ms-2 ">
           More Filters <i class="fas fa-filter "></i></a>
@@ -116,7 +118,7 @@
         </select>
       </div>
     </div>
-    <div class="mt-0 mt-lg-4 d-flex flex-wrap" id="repeat1" is="dmx-repeat" dmx-bind:repeat="arrProducts.items.count() > 0 ? arrProducts.items : jsonDS1.data.product.top(varMore.value)">
+    <div class="mt-0 mt-lg-4 d-flex flex-wrap" id="repeat1" is="dmx-repeat" dmx-bind:repeat="arrProducts.items.count() > 0 ? arrProducts.items : arrBrand.items.count() > 0 ? arrBrand.items : jsonDS1.data.product.where(`item_id`,varItem.value,'==').top(varMore.value)">
       <dmx-value id="varIsFavorite" dmx-bind:value="0"></dmx-value>
       <div class="col-lg-4">
         <div class=" mb-4" dmx-class:women-section-part-p="vardisplay.value==1" dmx-class:women-section-part="vardisplay.value==0">
@@ -131,13 +133,13 @@
           </div>
           <div class="women-content-part ">
             <div class="label d-none d-lg-block">{{type}}</div>
-            <div class="women-title"><a dmx-on:click="ddProductInformation.select(product_id)" dmx-bind:href="product-details?product_id={{product_id}}" internal>{{name}}</a></div>
+            <div class="women-title"><a dmx-bind:href="product-details?product_id={{product_id}}" internal dmx-on:click="run({run:{action:`ddProductInformation.select(product_id)`}})">{{name}}</a></div>
             <div class="d-flex " id="repeat3" is="dmx-repeat" dmx-bind:repeat="color.split(',')">
               <div class="rounded-circle w-shoes-color me-2" dmx-bind:style="background-color:{{$value}}"></div>
             </div>
             <div class="d-flex">
 
-              <div class="w-shoes-final-price"> {{final_price}} </div>
+              <div class="w-shoes-final-price"> {{final_price}} {{currency}}</div>
               <div class="w-shoes-real-price">{{real_price}}</div>
             </div>
             <div class="w-shoes-rating d-flex">

@@ -1,4 +1,10 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" id="productdetails" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{},dmxSwiper:{},dmxBootstrap5Navigation:{},dmxSlideshow:{},dmxStateManagement:{},dmxDataTraversal:{}}" is="dmx-app" appConnect="local" bootstrap5="local" -->
+<script is="dmx-flow" id="flow1" type="text/dmx-flow" autorun>{
+  run: {
+    action: "{{ddProductInformation.select(query.product_id.toNumber())}}",
+    output: true
+  }
+}</script>
 
 
 <dmx-query-manager id="qm"></dmx-query-manager>
@@ -157,7 +163,7 @@
       <div class="text-dark product_offer mt-4  font-medium12 ">{{ddProductInformation.data.discount}}</div>
       <div class="d-flex mb-4 me-2">
         <div class="w-shoes-real-price ms-0">{{ddProductInformation.data.real_price}}</div>
-        <div class="w-shoes-final-price ms-2">{{ddProductInformation.data.final_price}} </div>
+        <div class="w-shoes-final-price ms-2">{{ddProductInformation.data.final_price}} {{ddProductInformation.data.currency}}</div>
       </div>
     </div>
     <div class="d-flex flex-wrap  " id="buttonrepeat" is="dmx-repeat" dmx-bind:repeat="ddProductInformation.data.size.split(',')">
@@ -167,7 +173,7 @@
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Delivery to 75018 available</p>
       <p class="product_available_check font-medium12"> <i class="fas fa-check me-3"></i>Click&Collect at Paris Nord available</p>
     </div>
-    <div class="d-flex justify-content-center mt-4 me-2 btn btn-dark text-white rounded-0 align-items-center" dmx-on:click="arrCart.addUniq(ddProductInformation.data.product_id);notif.success('Product added to cart succesfully!')" dmx-class:disabled="arrCart.items.contains(ddProductInformation.data.product_id)" id="cart">
+    <div class="d-flex justify-content-center mt-4 me-2 btn btn-dark text-white rounded-0 align-items-center" dmx-on:click="arrCart.addUniq(ddProductInformation.data.product_id);notif.success('Product added to cart succesfully!');varTotalprice.setValue(ddProductInformation.data.final_price + varTotalprice.value)" dmx-class:disabled="arrCart.items.contains(ddProductInformation.data.product_id)" id="cart">
       <i class="fas fa-shopping-cart me-2 "></i>Add to Cart
     </div>
     <div class="d-flex  d-lg-none justify-content-center me-2 mt-4 btn  btn-outline-dark  rounded-0 align-items-center">

@@ -37,9 +37,12 @@
   <script src="dmxAppConnect/dmxBrowser/dmxBrowser.js" defer=""></script>
   <link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
   <script src="dmxAppConnect/dmxNotifications/dmxNotifications.js" defer=""></script>
+  <script src="dmxAppConnect/dmxTyped/dmxTyped.js" defer=""></script>
+  <script src="dmxAppConnect/dmxTyped/typed.min.js" defer=""></script>
 </head>
 
 <body id="main" is="dmx-app">
+  <dmx-value id="varTotalprice" dmx-bind:value="0"></dmx-value>
   <dmx-notifications id="notif"></dmx-notifications>
   <dmx-array id="arrCart"></dmx-array>
 
@@ -55,14 +58,19 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <h5 class="d-flex justify-content-between fw-bold mb-4">New Releases <img src="assets/images/arrow.svg"></h5>
-      <h5 class="d-flex justify-content-between fw-bold mb-4">Men <img src="assets/images/arrow.svg"></h5>
-      <h5 class="d-flex justify-content-between fw-bold mb-4">Women <img src="assets/images/arrow.svg"></h5>
-      <h5 class="d-flex justify-content-between fw-bold mb-4">kids <img src="assets/images/arrow.svg"></h5>
-      <h5 class="d-flex justify-content-between fw-bold mb-4">Sales <img src="assets/images/arrow.svg"></h5>
-      <h5 class="d-flex justify-content-between fw-bold mb-4">Collections <img src="assets/images/arrow.svg"></h5>
-      <button class="btn btn-outline-dark mt-5 rounded-0 w-100 p-2" type="button"> <img src="assets/images/location.svg" class="me-2">Store Locator
+      <div is="dmx-repeat" id="repeatCategory_sm" dmx-bind:repeat="jsonDS1.data.menu_categories">
+        <h5 class="me-2 mb-4 d-flex justify-content-between" style="cursor: pointer;" dmx-class:fw-bold="category_id == varCategory.value" dmx-on:click="varCategory.setValue(category_id);collapse_menu.toggle()">{{title}} <img src="assets/images/arrow.svg"></h5>
+      </div>
+      <div class="collapse" id="collapse_menu" is="dmx-bs5-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-medium12" is="dmx-repeat" id="repeat_item" dmx-bind:repeat="jsonDS1.data.menu_items.where(`category_id`, varCategory.value, '==')">
+          <li class="nav-item">
+            <a class="nav-link  text-dark" dmx-on:click="varItem.setValue(item_id)" data-bs-dismiss="offcanvas" dmx-class:ps-0="$index==0" dmx-bind:href="product-listing?item_id={{item_id}}" internal>{{title}}</a>
+          </li>
+        </ul>
+      </div>
+      <button class="btn btn-outline-dark mt-5 rounded-0 w-100 p-2" type="button" dmx-on:click="modalfindstore.toggle()"> <img src="assets/images/location.svg" class="me-2">Store Locator
       </button>
+
       <p class="mt-4 font-large14"> <img src="assets/images/Accountsm.svg">ACCOUNT</p>
       <p class="font-large14"><img src="assets/images/Help.svg">HELP</p>
       <p class="font-large14"><img src="assets/images/Newsletter.svg">NEWSLETTER</p>
@@ -104,7 +112,7 @@
           <div class="d-none d-lg-inline">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-medium12" is="dmx-repeat" id="repeat1" dmx-bind:repeat="jsonDS1.data.menu_items.where(`category_id`, varCategory.value, '==')">
               <li class="nav-item">
-                <a class="nav-link  text-dark" href="#" dmx-on:click="varItem.setValue(item_id)" dmx-class:ps-0="$index==0">{{title}}</a>
+                <a class="nav-link  text-dark" dmx-on:click="varItem.setValue(item_id)" dmx-class:ps-0="$index==0" dmx-bind:href="product-listing?item_id={{item_id}}" internal>{{title}}</a>
               </li>
             </ul>
           </div>
@@ -325,14 +333,16 @@
   <div class="modal fade" id="modalCart" is="dmx-bs5-modal" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered" role="document">
       <div class="modal-content rounded-0">
-        <div class="modal-header" dmx-hide=" arrCart.items==0">
-          <h5 class="modal-title fw-bold">Added to your cart <i class="fas fa-check text-success"></i></h5>
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" dmx-hide="arrCart.items==0">Added to your cart <i class="fas fa-check text-success"></i></h5>
+          <h5 classs="modal-title fw-bold" dmx-show="arrCart.items==0">Item Not Found</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <h5>Item Not Found</h5>
-        <div class="modal-body" dmx-hide=" arrCart.items==0">
-          <div id="repeat5" is="dmx-repeat" dmx-bind:repeat="arrCart.items" class="d-lg-flex">
-            <div class="cart_item_details d-flex">
+
+        <div class="modal-body d-lg-flex">
+          <img src="assets/images/emptycart.jpg" dmx-show="arrCart.items==0" class=" w-50 h-50">
+          <div id="repeat5" is="dmx-repeat" dmx-bind:repeat="arrCart.items" dmx-hide=" arrCart.items==0" class="d-flex flex-lg-column">
+            <div class="cart_item_details d-flex mt-3">
 
 
               <div class="cart_image me-2">
@@ -351,24 +361,28 @@
             </div>
           </div>
 
-          <div class="item_checkout">
+          <div class="item_checkout" dmx-hide=" arrCart.items==0">
             <div class="d-flex justify-content-center font-large14 w-50 mt-4 me-2 btn bg-dark text-white rounded-0 align-items-center">
               <i class="fas fa-shopping-cart me-2 "></i>CHECKOUT NOW
             </div>
             <a href="" class="text-dark font-large14">Or Continue Shopping </a>
             <div class="bg-light mt-3 p-4">
-              <P class="font-large14">Only <span class="fw-bold">25,05€ </span>left to enjoy <span class="fw-bold">free delivery</span>
+              <P class="font-large14" dmx-hide="varTotalprice.value &gt; 100 ">Only <span class="fw-bold">{{(100 - varTotalprice.value).round(2)}}{{ddProductInformation.data.currency}} </span>left to enjoy <span class="fw-bold">free delivery
+                </span>
+              </P>
+              <P class="font-large14" dmx-show="varTotalprice.value &gt; 100"> Available to <span class="fw-bold">free delivery
+                </span>
               </P>
               <div class="d-flex align-items-center">
                 <div class="progress m-0 w-75">
-                  <div class="progress-bar bg-dark" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" dmx-style:width="{{varTotalprice.value / 100 * 100}}%"></div>
                 </div><span class="fw-bold ms-2">100,00 €</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer border-0 mt-3" dmx-hide=" arrCart.items==0">
-          <div class="container px-0 mb-5 ">
+        <div class="modal-footer border-0 mt-3">
+          <div class="container px-0 mb-5" dmx-hide=" arrCart.items==0">
             <div class="d-flex justify-content-between ">
               <h3 class="d-flex justify-content-start  fw-bold   mb-0 d-lg-block ms-4">
                 COMBINE WITH ...
