@@ -611,6 +611,7 @@
       "slide": "assets/images/shoes5.svg,assets/images/shoes5.svg,assets/images/shoes5.svg",
       "discount": "-52% OFF",
       "type": "Vans",
+      "name": "Vans Shoes",
       "final_price": 54.95,
       "currency": "€",
       "real_price": "121,00€",
