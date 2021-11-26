@@ -71,11 +71,11 @@
   </div>
 </div>
 <div class="d-flex justify-content-end btn d-lg-none me-md-3 p-3" dmx-on:click="offcanvasfilter.toggle()">Filter & Sort</div>
-<dmx-value id="vardisplay" dmx-bind:value="0"></dmx-value>
-<div class="container px-0  mt-0 mt-lg-5 " dmx-class:d-flex="vardisplay.value==0">
-  <div class=" d-none d-lg-block" dmx-class:col-lg-12="vardisplay.value==1" dmx-class:col-lg-3="vardisplay.value==0">
+<dmx-value id="varDisplay" dmx-bind:value="0"></dmx-value>
+<div class="container px-0  mt-0 mt-lg-5 " dmx-class:d-flex="varDisplay.value==0">
+  <div class=" d-none d-lg-block" dmx-class:col-lg-12="varDisplay.value==1" dmx-class:col-lg-3="varDisplay.value==0">
     <h5 class="label font-large14"> Categories</h5>
-    <div dmx-class:d-flex="vardisplay.value==1" dmx-class:justify-content-between="vardisplay.value==1" id="repeatshoescategories" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.shoes_categories.where(`item_id`,varItem.value,'==')">
+    <div dmx-class:d-flex="varDisplay.value==1" dmx-class:justify-content-between="varDisplay.value==1" id="repeatshoescategories" is="dmx-repeat" dmx-bind:repeat="jsonDS1.data.shoes_categories.where(`item_id`,varItem.value,'==')">
       <div class="d-flex align-items-center">
         <img dmx-bind:src="image" class="mt-4">
         <div class="font-large14 mt-4 ms-3 text-center">{{title}}
@@ -83,7 +83,7 @@
       </div>
     </div>
   </div>
-  <div dmx-class:mt-5="vardisplay.value==1" dmx-class:col-lg-12="vardisplay.value==1" dmx-class:col-lg-9="vardisplay.value==0">
+  <div dmx-class:mt-5="varDisplay.value==1" dmx-class:col-lg-12="varDisplay.value==1" dmx-class:col-lg-9="varDisplay.value==0">
     <div class="d-flex justify-content-between d-none d-lg-flex ">
       <div class="d-flex align-items-center w-50  ">
         <select class="form-select  me-3" id="selectSize">
@@ -108,7 +108,7 @@
           More Filters <i class="fas fa-filter "></i></a>
       </div>
       <div class="d-flex align-items-center d-none d-lg-flex ">
-        <span class="text-nowrap">Display <span class="btn" dmx-on:click="vardisplay.value == 1 ? vardisplay.setValue(0) : vardisplay.setValue(1)"><img src="assets/images/Category.svg" class="me-2"> </span><img src="assets/images/Square.svg" class="me-3"></span>
+        <span class="text-nowrap">Display <span class="btn" dmx-on:click="varDisplay.value == 1 ? varDisplay.setValue(0) : varDisplay.setValue(1)"><img src="assets/images/Category.svg" class="me-2"> </span><img src="assets/images/Square.svg" class="me-3"></span>
         <select class="form-select  m-0 ">
           <option selected class="font-medium12">Sort by: Most Relevant</option>
           <option value="1">Newest</option>
@@ -121,14 +121,14 @@
     <div class="mt-0 mt-lg-4 d-flex flex-wrap" id="repeat1" is="dmx-repeat" dmx-bind:repeat="arrProducts.items.count() > 0 ? arrProducts.items : arrBrand.items.count() > 0 ? arrBrand.items : jsonDS1.data.product.where(`item_id`,varItem.value,'==').top(varMore.value)">
       <dmx-value id="varIsFavorite" dmx-bind:value="0"></dmx-value>
       <div class="col-lg-4">
-        <div class=" mb-4" dmx-class:women-section-part-p="vardisplay.value==1" dmx-class:women-section-part="vardisplay.value==0">
-          <div dmx-class:women-image-part-p="vardisplay.value==1" dmx-class:women-image-part="vardisplay.value==0">
+        <div class=" mb-4" dmx-class:women-section-part-p="varDisplay.value==1" dmx-class:women-section-part="varDisplay.value==0">
+          <div dmx-class:women-image-part-p="varDisplay.value==1" dmx-class:women-image-part="varDisplay.value==0">
             <img dmx-bind:src="image" class="w-100 h-100 w-shoes-image">
-            <div class="btn btn-icon  mt-1 px-1" dmx-class:women-image-save-p="vardisplay.value==1" dmx-class:women-image-save="vardisplay.value==0" dmx-on:click="varIsFavorite.value == 1 ? varIsFavorite.setValue(0) : varIsFavorite.setValue(1)">
+            <div class="btn btn-icon  mt-1 px-1" dmx-class:women-image-save-p="varDisplay.value==1" dmx-class:women-image-save="varDisplay.value==0" dmx-on:click="varIsFavorite.value == 1 ? varIsFavorite.setValue(0) : varIsFavorite.setValue(1)">
               <span dmx-hide="varIsFavorite.value"> <i class="bi-suit-heart"></i></span>
               <span dmx-show="varIsFavorite.value"> <i class="bi-heart-fill text-danger"></i></span>
             </div>
-            <div dmx-class:women-image-tag-p="vardisplay.value==1" dmx-class:women-image-tag="vardisplay.value==0">{{discount}}
+            <div dmx-class:women-image-tag-p="varDisplay.value==1" dmx-class:women-image-tag="varDisplay.value==0">{{discount}}
             </div>
           </div>
           <div class="women-content-part ">
@@ -138,7 +138,6 @@
               <div class="rounded-circle w-shoes-color me-2" dmx-bind:style="background-color:{{$value}}"></div>
             </div>
             <div class="d-flex">
-
               <div class="w-shoes-final-price"> {{final_price}} {{currency}}</div>
               <div class="w-shoes-real-price">{{real_price}}</div>
             </div>
@@ -153,7 +152,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 <div class=" d-flex justify-content-center">
@@ -165,7 +163,5 @@
   You've seen {{varMore.value &gt; jsonDS1.data.product.count() ? jsonDS1.data.product.count() : varMore.value }} products out of {{jsonDS1.data.product.count()}}
 </div>
 <div class="d-flex justify-content-center ">
-
-
   <button class="btn btn-dark text-white mt-3 " dmx-on:click="varMore.setValue(varMore.value + 4)" dmx-hide="varMore.value >= jsonDS1.data.product.count()">Load More</button>
 </div>

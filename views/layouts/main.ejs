@@ -343,8 +343,6 @@
           <img src="assets/images/emptycart.jpg" dmx-show="arrCart.items==0" class=" w-50 h-50">
           <div id="repeat5" is="dmx-repeat" dmx-bind:repeat="arrCart.items" dmx-hide=" arrCart.items==0" class="d-flex flex-lg-column">
             <div class="cart_item_details d-flex mt-3">
-
-
               <div class="cart_image me-2">
                 <img dmx-bind:src="{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`image`)}}
 " class="w-shoes-image w-100 h-100">
@@ -360,7 +358,6 @@
               </div>
             </div>
           </div>
-
           <div class="item_checkout" dmx-hide=" arrCart.items==0">
             <div class="d-flex justify-content-center font-large14 w-50 mt-4 me-2 btn bg-dark text-white rounded-0 align-items-center">
               <i class="fas fa-shopping-cart me-2 "></i>CHECKOUT NOW
