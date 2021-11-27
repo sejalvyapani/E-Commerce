@@ -1,5 +1,6 @@
 body{
   font-family:'Inter',sans-serif;
+    cursor: url(/assets/images/happy.cur),auto;
 }
 .store_button{
   width:95px;
@@ -87,6 +88,8 @@ font-size: 14px;
  }
  .slide{
    padding-top: 92% !important;
+   -webkit-animation: fadeIn;
+           animation: fadeIn;
  }
  .dmx-slideshow-textbox-container{
   width:375px !important;

@@ -32,13 +32,16 @@
   <script src="dmxAppConnect/dmxGoogleMaps/dmxGoogleMaps.js" defer=""></script>
   <link rel="stylesheet" href="dmxAppConnect/dmxSlideshow/dmxSlideshow.css" />
   <script src="dmxAppConnect/dmxSlideshow/dmxSlideshow.js" defer=""></script>
-  <link rel="stylesheet" href="dmxAppConnect/dmxSlideshow/themes/light.css" />
+  <link rel="stylesheet" href="dmxAppConnect/dmxSlideshow/themes/dark.css" />
   <script src="dmxAppConnect/dmxStateManagement/dmxStateManagement.js" defer=""></script>
   <script src="dmxAppConnect/dmxBrowser/dmxBrowser.js" defer=""></script>
   <link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
   <script src="dmxAppConnect/dmxNotifications/dmxNotifications.js" defer=""></script>
   <script src="dmxAppConnect/dmxTyped/dmxTyped.js" defer=""></script>
   <script src="dmxAppConnect/dmxTyped/typed.min.js" defer=""></script>
+  <script src="dmxAppConnect/dmxSlideshow3DTransitions/dmxSlideshow3DTransitions.js" defer=""></script>
+  <link rel="stylesheet" href="dmxAppConnect/dmxAnimateCSS/animate.min.css" />
+  <script src="dmxAppConnect/dmxAnimateCSS/dmxAnimateCSS.js" defer=""></script>
 </head>
 
 <body id="main" is="dmx-app">
@@ -344,8 +347,7 @@
           <div id="repeat5" is="dmx-repeat" dmx-bind:repeat="arrCart.items" dmx-hide=" arrCart.items==0" class="d-flex flex-lg-column">
             <div class="cart_item_details d-flex mt-3">
               <div class="cart_image me-2">
-                <img dmx-bind:src="{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`image`)}}
-" class="w-shoes-image w-100 h-100">
+                <img dmx-bind:src="{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`image`)}}" class="w-shoes-image w-100 h-100">
               </div>
               <div>
                 <p class="label mb-1">{{jsonDS1.data.product.where(`product_id`,$value,'==').values(`type`)}}</p>

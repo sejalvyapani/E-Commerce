@@ -1,4 +1,4 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" id="productdetails" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{},dmxSwiper:{},dmxBootstrap5Navigation:{},dmxSlideshow:{},dmxStateManagement:{},dmxDataTraversal:{}}" is="dmx-app" appConnect="local" bootstrap5="local" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" id="productdetails" components="{dmxBootstrap5Offcanvas:{},dmxBootstrap5Collapse:{},dmxSwiper:{},dmxBootstrap5Navigation:{},dmxSlideshow:{},dmxStateManagement:{},dmxDataTraversal:{},dmxSlideshow3DTransitions:{},dmxSlideshow2DTransitions:{}}" is="dmx-app" appConnect="local" bootstrap5="local" -->
 <script is="dmx-flow" id="flow1" type="text/dmx-flow" autorun>{
   run: {
     action: "{{ddProductInformation.select(query.product_id.toNumber())}}",
@@ -122,7 +122,7 @@
       </div>
     </div>
   </div>
-  <dmx-slideshow id="slideshow1" show-paging="true" no-autostart="true" class="slide d-lg-none" dmx-bind:slides="ddProductInformation.data.slide.split(',')" slide-url="{{$value}}">
+  <dmx-slideshow id="slideshow1" show-paging="true" class="slide d-lg-none" dmx-bind:slides="ddProductInformation.data.slide.split(',')" slide-url="{{$value}}" delay="1000" start-random="true" transition:cube="{direction:'right'}">
   </dmx-slideshow>
   <div class="product_details  ms-4 col-lg-4 col-sm-12 mt-3 ">
     <div class=" d-flex flex-lg-column flex-column-reverse">
