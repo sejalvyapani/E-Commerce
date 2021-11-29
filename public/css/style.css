@@ -2,6 +2,11 @@ body{
   font-family:'Inter',sans-serif;
     cursor: url(/assets/images/happy.cur),auto;
 }
+    .ul-about{
+        -webkit-columns: 2;
+           -moz-columns: 2;
+                columns: 2;
+      }
 .store_button{
   width:95px;
   height:34px;
@@ -786,11 +791,6 @@ height: 218px;
 height: 522.5px;
 left: 80px;
     margin-top: 20px;
-  }
-  .product_details{
-height: 2479px;
-left: 925px;
-top: 86px;
   }
   .product_offer{
 height: 23px;

@@ -7,6 +7,8 @@
 }</script>
 <dmx-query-manager id="qm"></dmx-query-manager>
 <meta name="ac:route" content="/product-details">
+<dmx-value id="varProduct-details" dmx-bind:value="0"></dmx-value>
+
 <dmx-array id="arrReviews" dmx-bind:items="jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`user_name.lowercase()` ,formSearch.search_review.value.lowercase(), 'contains')"></dmx-array>
 <dmx-array id="arrReviews_coll" dmx-bind:items="jsonDS1.data.user_review.where(`product_id`,ddProductInformation.data.product_id,'==').where(`user_name.lowercase()` ,Revcollapse.ReviewSearch.search_review_coll.value.lowercase(), 'contains')"></dmx-array>
 <div class="container px-0 d-none d-lg-block label">
@@ -16,41 +18,37 @@
   </h4>
 </div>
 <div class="container d-lg-flex mt-4 px-0">
-  <div class="product_image col-lg-8  d-none d-lg-block col-sm-12">
-    <div class="top_image_group d-none d-lg-block">
-      <img dmx-bind:src="ddProductInformation.data.image" class="w-100 h-100 w-shoes-image">
+  <div class=" col-lg-8  d-none d-lg-block col-sm-12">
+    <div class="product_image">
+      <div class="top_image_group d-none d-lg-block">
+        <img dmx-bind:src="ddProductInformation.data.image" class="w-100 h-100 w-shoes-image">
+      </div>
+      <div class="bottom_image_group d-none d-lg-block">
+        <img src="assets/images/sm-pic4.svg" class="w-100 h-100 w-shoes-image">
+      </div>
     </div>
-    <div class="bottom_image_group d-none d-lg-block">
-      <img src="assets/images/sm-pic4.svg" class="w-100 h-100 w-shoes-image">
-    </div>
-    <div class="mt-4  ">
+    <div class="mt-4">
       <ul class="nav nav-tabs border-0">
-        <li class="nav-item">
-          <a class="nav-link active text-dark  border-bottom ps-0" aria-current="page" href="#">About</a>
+        <li class="nav-item btn" dmx-on:click="varProductdetails.setValue(1)">
+          About
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark  border-bottom" href="#">Reviews</a>
+        <li class="nav-item btn" dmx-on:click="varProductdetails.setValue(2)">
+          Reviews
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark  border-bottom" href="#">Shipping and returns</a>
+        <li class="nav-item btn" dmx-on:click="varProductdetails.setValue(3)">
+          Shipping and returns
         </li>
       </ul>
     </div>
-    <div class=" font-large14  mt-5">
-      <p>Celebrate the beauty of our planet with this adidas Stan Smith shoe. Created in collaboration with HER Studio London, this iconic sneaker features a heavenly floral print. Crafted from recycled materials, it has a sleek, sleek synthetic upper that looks like leather. A classic shoe that reduces waste. And to go even further: this product is designed with Primegreen, a series of high performance recycled materials. 50% of the upper is made from recycled materials. No virgin polyester.</p>
-    </div>
-    <div class="d-flex font-large14 justify-content-between mt-4">
-      <ul class="list-unstyled" id="repeat1" is="dmx-repeat" dmx-bind:repeat="ddProductInformation.data.product_materials.split(',')">
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>{{$value}}</li>
+    <div dmx-hide="varProductdetails.value &gt; 1">
+      <div class=" font-large14  mt-5">
+        <p>Celebrate the beauty of our planet with this adidas Stan Smith shoe. Created in collaboration with HER Studio London, this iconic sneaker features a heavenly floral print. Crafted from recycled materials, it has a sleek, sleek synthetic upper that looks like leather. A classic shoe that reduces waste. And to go even further: this product is designed with Primegreen, a series of high performance recycled materials. 50% of the upper is made from recycled materials. No virgin polyester.</p>
+      </div>
+      <ul class="list-unstyled font-large14 ul-about mt-4" id="repeat1" is="dmx-repeat" dmx-bind:repeat="ddProductInformation.data.product_materials.split(',')">
+        <li class="mt-2"><i class="far fa-check-circle me-2"></i>{{$value}}</li>
       </ul>
-      <!--
-      <ul class="list-unstyled ">
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>Primegreen</li>
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>Porduct color: Cloud White / Black / Red</li>
-        <li class="mt-3"><i class="far fa-check-circle me-2"></i>Product code: GZ0976</li>
-      </ul>-->
     </div>
-    <div class="d-flex mt-5 ">
+    <div class="d-flex mt-5" dmx-hide="varProductdetails.value ==3">
       <div class="col-lg-5">
         <h5 class="fw-bold">Customer reviews</h5>
         <div class="d-flex align-items-center mt-3">
@@ -121,10 +119,14 @@
         </div>
       </div>
     </div>
+    <div class="mt-5 fw-bold" dmx-hide="varProductdetails.value==2">
+      <P class="font-medium14"> <i class="fas fa-undo me-2"></i>{{ddProductInformation.data.return}}</P>
+      <p class="font-medium14"> <i class="fas fa-shopping-cart me-2"></i> Free shipping for loyalty club members</p>
+    </div>
   </div>
   <dmx-slideshow id="slideshow1" show-paging="true" class="slide d-lg-none" dmx-bind:slides="ddProductInformation.data.slide.split(',')" slide-url="{{$value}}" delay="1000" start-random="true" transition:cube="{direction:'right'}">
   </dmx-slideshow>
-  <div class="product_details  ms-4 col-lg-4 col-sm-12 mt-3 ">
+  <div class="ms-4 col-lg-4 col-sm-12 mt-3 ">
     <div class=" d-flex flex-lg-column flex-column-reverse">
       <div class="col-sm-12">
         <h5 class="text-black-50 font-medium12">{{ddProductInformation.data.type}}</h5>
@@ -274,7 +276,7 @@
     </div>
   </div>
 </div>
-<div class="container px-0  ">
+<div class="container px-0 mt-5 ">
   <div class="d-flex justify-content-between ">
     <span class="d-flex justify-content-start  fw-bold  heading  mb-0 d-lg-block ms-4">
       YOU MAY ALSO LIKE...
